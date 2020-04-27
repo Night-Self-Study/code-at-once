@@ -16,7 +16,7 @@ If you didn't install django, follow :
 
 I recommand you to use **python>=3.0** because django 1.11 is the last version supporting python 2.7.
 
-And support for python 2.7 and django 1.11 will end in 2020.
+And support for python 2.7 and django 1.11 will be done in 2020.
 
 If you want to make a new app, use this command,
 
