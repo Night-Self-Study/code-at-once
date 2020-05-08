@@ -37,7 +37,7 @@ const Header = () => {
 };
 
 const HeaderWrapper = styled.nav`
-  background-color: ${palette.pastel4};
+  background-color: ${palette.pastelBlue};
   padding: 20px 0px;
   .contents {
     width: 90%;
