@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import styled from "styled-components";
 
 import HomePage from "./pages/HomePage";
-import IndexPage from "./pages/IndexPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import CoursePage from "./pages/CoursePage";
 import TheoryPage from "./pages/TheoryPage";
@@ -19,8 +18,7 @@ const App = () => {
       <Main>
         <MainWrapper>
           <Switch>
-            <Route exact path="/" component={IndexPage} />
-            <Route path="/home" component={HomePage} />
+            <Route exact path="/" component={HomePage} />
             <Route path="/course" component={CoursePage} />
             <Route path="/theory" component={TheoryPage} />
             <Route path="/practice" component={PracticePage} />

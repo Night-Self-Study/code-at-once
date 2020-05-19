@@ -9,7 +9,7 @@ import palette from "../lib/styles/palette";
 import HamburgerMenuIcon from "../components/HamburgerMenuIcon";
 import useToggle from "../lib/hooks/useToggle";
 
-const IndexContainer = () => {
+const Home = () => {
   const [searchBar, setSearchBar] = useState("");
   const [isClicked, isClickedActions] = useToggle(false);
 
@@ -33,7 +33,7 @@ const IndexContainer = () => {
   };
 
   return (
-    <IndexContainerWrapper>
+    <HomeWrapper>
       <Input type="container-1" inputWidth="50%" />
       <header>
         <li className="header-head">
@@ -83,11 +83,11 @@ const IndexContainer = () => {
           />
         ))}
       </section>
-    </IndexContainerWrapper>
+    </HomeWrapper>
   );
 };
 
-const IndexContainerWrapper = styled.div`
+const HomeWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -143,4 +143,4 @@ const IndexContainerWrapper = styled.div`
   }
 `;
 
-export default IndexContainer;
+export default Home;
