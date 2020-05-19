@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const HamburgerMenuIcon = () => {
+const HamburgerMenuIcon = ({ onClick }) => {
   return (
-    <HamburgerMenuIconWrapper>
+    <HamburgerMenuIconWrapper onClick={onClick}>
       <div id="line-wrapper">
         <div className="line"> </div>
         <div className="line"> </div>
