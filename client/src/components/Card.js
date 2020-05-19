@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import palette from "../lib/styles/palette";
 
-import noImage from "../lib/asset/noimage.jpg";
+import noImage from "../lib/assets/noimage.jpg";
 import NoDecorationLink from "./NoDecorationLink";
 
 const errorPath = "/error";
@@ -15,15 +15,10 @@ const Card = ({
   author = "author를 불러오지 못했습니다.",
   detail = "",
 }) => {
-  useEffect(() => {
-    console.log(path);
-  });
-
   return (
     <CardWrapper>
-      <NoDecorationLink to="/error">
+      <NoDecorationLink to={path}>
         <img alt="dummyImage_alt" src={thumbnail} />
-        {console.log(thumbnail)}
         <div className="level">[{level}]</div>
         <div className="title">{title}</div>
         <div className="author">{author}</div>
