@@ -32,6 +32,19 @@ const Home = () => {
     isClickedActions.toggle();
   };
 
+  const dummyWeb = ["", "CSS", "JS", "TS", "React"];
+  const dummyCs = ["", "Compiler", "PL", "DataStructure", "Git"];
+  const dummySystem = ["", "windows", "Ubuntu", "RedHat", "Kali-Linux"];
+  const dummyAi = [
+    "",
+    "Reinforce",
+    "Supervised",
+    "Unsupervised",
+    "Visualization",
+  ];
+
+  const dummyCategory = [[], dummyWeb, dummyCs, dummySystem, dummyAi];
+
   return (
     <HomeWrapper>
       <Input type="container-1" inputWidth="50%" />
@@ -40,34 +53,22 @@ const Home = () => {
           <ul>
             <HamburgerMenuIcon onClick={onClickHamburger} />
           </ul>
-          <ul>a</ul>
-          <ul>a</ul>
-          <ul>o</ul>
-          <ul>d</ul>
+          <ul>WEB</ul>
+          <ul>AI</ul>
+          <ul>OS</ul>
+          <ul>DATA STRUCTURE</ul>
         </li>
         {isClicked ? (
           <div className="header-body">
-            <li className="header-row">
-              <ul> </ul>
-              <ul>a</ul>
-              <ul>b</ul>
-              <ul>c</ul>
-              <ul>d</ul>
-            </li>
-            <li className="header-row">
-              <ul> </ul>
-              <ul>a</ul>
-              <ul>b</ul>
-              <ul>c</ul>
-              <ul>d</ul>
-            </li>
-            <li className="header-row">
-              <ul> </ul>
-              <ul>a</ul>
-              <ul>b</ul>
-              <ul>c</ul>
-              <ul>d</ul>
-            </li>
+            {dummyCategory.map((category) => {
+              return (
+                <li key={category} className="column">
+                  {category.map((item) => (
+                    <ul key={item}>{item}</ul>
+                  ))}
+                </li>
+              );
+            })}
           </div>
         ) : null}
       </header>
@@ -97,40 +98,37 @@ const HomeWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-self: stretch;
-  }
 
-  .header-head {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px 0px;
-    margin-top: 40px;
-    background: ${palette.classicBlue};
-    color: white;
-    ul {
-      display: flex;
-      justify-content: center;
-      flex: 0 1 20%;
-    }
-  }
-  .header-body {
-    display: flex;
-    flex-direction: column;
-
-    .header-row {
+    .header-head {
       display: flex;
       justify-content: space-around;
       align-items: center;
       padding: 20px 0px;
-      background: ${palette.white};
-      color: black;
-      border-bottom: 1px solid gray;
+      margin-top: 40px;
+      background: ${palette.classicBlue};
+      color: white;
+    }
 
-      ul {
+    .header-body {
+      display: flex;
+      justify-content: space-around;
+
+      .column {
         display: flex;
-        justify-content: center;
-        flex: 0 1 20%;
+        flex: 1 0 20%;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0px;
+        background: ${palette.white};
+        color: black;
+        border-bottom: 1px solid gray;
       }
+    }
+    ul {
+      display: flex;
+      justify-content: center;
+      flex: 0 1 20%;
+      margin: 5px 0px;
     }
   }
 
