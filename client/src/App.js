@@ -1,15 +1,15 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
+import Header from "components/Header";
 import styled from "styled-components";
 
-import HomePage from "./pages/HomePage";
-import NotFoundPage from "./pages/NotFoundPage";
-import CoursePage from "./pages/CoursePage";
-import TheoryPage from "./pages/TheoryPage";
-import PracticePage from "./pages/PracticePage";
-import RegisterPage from "./pages/RegisterPage";
-import LoginPage from "./pages/LoginPage";
+import HomePage from "pages/HomePage";
+import NotFoundPage from "pages/NotFoundPage";
+import CoursePage from "pages/CoursePage";
+import TheoryPage from "pages/TheoryPage";
+import PracticePage from "pages/PracticePage";
+import RegisterPage from "pages/RegisterPage";
+import LoginPage from "pages/LoginPage";
 
 const App = () => {
   return (

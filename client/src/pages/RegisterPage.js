@@ -1,7 +1,7 @@
 import React from "react";
-import CustomForm from "../components/CustomForm";
 import styled from "styled-components";
-import Button from "../components/Button";
+import CustomForm from "components/CustomForm";
+import Button from "components/Button";
 
 const RegisterPage = () => {
   return (

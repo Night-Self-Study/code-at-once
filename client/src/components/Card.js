@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import palette from "../lib/styles/palette";
+import palette from "lib/styles/palette";
 
-import noImage from "../lib/assets/noimage.jpg";
-import NoDecorationLink from "./NoDecorationLink";
+import noImage from "lib/assets/noimage.jpg";
+import NoDecorationLink from "components/NoDecorationLink";
 
 const errorPath = "/error";
 

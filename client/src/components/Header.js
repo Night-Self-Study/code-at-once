@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import palette from "../lib/styles/palette";
-import NoDecorationLink from "./NoDecorationLink";
+import palette from "lib/styles/palette";
+import NoDecorationLink from "components/NoDecorationLink";
 
 const Header = ({ auth = undefined }) => {
   return (

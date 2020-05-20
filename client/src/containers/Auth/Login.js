@@ -1,7 +1,7 @@
 import React from "react";
-import CustomForm from "../../components/CustomForm";
+import CustomForm from "components/CustomForm";
 import styled from "styled-components";
-import Button from "../../components/Button";
+import Button from "components/Button";
 
 const Login = () => {
   return (

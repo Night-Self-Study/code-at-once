@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "../containers/Auth/Login";
+import Login from "containers/Auth/Login";
 
 const LoginPage = () => {
   return <Login />;

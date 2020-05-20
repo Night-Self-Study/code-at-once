@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Input from "../components/SearchBar";
-import Card from "../components/Card";
+import Input from "components/SearchBar";
+import Card from "components/Card";
 
-import dummyImage from "../lib/assets/library.jpg";
-import palette from "../lib/styles/palette";
+import dummyImage from "lib/assets/library.jpg";
+import palette from "lib/styles/palette";
 
-import HamburgerMenuIcon from "../components/HamburgerMenuIcon";
-import useToggle from "../lib/hooks/useToggle";
+import HamburgerMenuIcon from "components/HamburgerMenuIcon";
+import useToggle from "lib/hooks/useToggle";
 
 const Home = () => {
   const [searchBar, setSearchBar] = useState("");
