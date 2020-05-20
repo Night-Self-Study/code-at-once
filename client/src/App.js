@@ -14,7 +14,7 @@ import LoginPage from "./pages/LoginPage";
 const App = () => {
   return (
     <>
-      <Header />
+      <Header auth={false} />
       <Main>
         <MainWrapper>
           <Switch>

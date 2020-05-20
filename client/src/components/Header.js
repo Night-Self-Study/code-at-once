@@ -1,38 +1,62 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import palette from "../lib/styles/palette";
+import NoDecorationLink from "./NoDecorationLink";
 
-const Header = () => {
+const Header = ({ auth = undefined }) => {
   return (
     <HeaderWrapper>
       <div className="contents">
         <ul>
           <li className="logo">
-            <NoUnderlineLink to="/">Code at Once</NoUnderlineLink>
+            <NoDecorationLink to="/">Code at Once</NoDecorationLink>
           </li>
           <li>
-            <NoUnderlineLink to="/course">Course</NoUnderlineLink>
+            <NoDecorationLink to="/course">Course</NoDecorationLink>
           </li>
           <li>
-            <NoUnderlineLink to="/theory">Theory</NoUnderlineLink>
+            <NoDecorationLink to="/theory">Theory</NoDecorationLink>
           </li>
           <li>
-            <NoUnderlineLink to="/practice">Practice</NoUnderlineLink>
+            <NoDecorationLink to="/practice">Practice</NoDecorationLink>
           </li>
         </ul>
         <div className="right">
-          <ul>
-            <li>
-              <NoUnderlineLink to="/login">로그인</NoUnderlineLink>
-            </li>
-            <li>
-              <NoUnderlineLink to="/register">회원가입</NoUnderlineLink>
-            </li>
-          </ul>
+          {auth ? <AuthenticatedRight /> : <UnAuthenticatedRight />}
         </div>
       </div>
     </HeaderWrapper>
+  );
+};
+
+const AuthenticatedRight = () => {
+  return (
+    <ul>
+      <li>
+        <NoDecorationLink to="/logout">로그아웃</NoDecorationLink>
+      </li>
+      <li>
+        <NoDecorationLink to="/mypage">정보관리</NoDecorationLink>
+      </li>
+      <li>
+        <NoDecorationLink onClick={() => console.log("continue clicked")}>
+          이어서 학습하기
+        </NoDecorationLink>
+      </li>
+    </ul>
+  );
+};
+
+const UnAuthenticatedRight = () => {
+  return (
+    <ul>
+      <li>
+        <NoDecorationLink to="/login">로그인</NoDecorationLink>
+      </li>
+      <li>
+        <NoDecorationLink to="/register">회원가입</NoDecorationLink>
+      </li>
+    </ul>
   );
 };
 
@@ -64,11 +88,9 @@ const HeaderWrapper = styled.nav`
   .logo {
     font-size: 30px;
   }
-`;
 
-const NoUnderlineLink = styled(Link)`
-  text-decoration: none;
-  font-weight: 200;
-  color: white;
+  ${NoDecorationLink} {
+    color: white;
+  }
 `;
 export default Header;
