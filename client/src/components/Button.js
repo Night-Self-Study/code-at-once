@@ -1,12 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import palette from "lib/styles/palette";
 
-const Button = ({ children }) => {
-  return <ButtonWrapper>{children}</ButtonWrapper>;
-};
-
-const ButtonWrapper = styled.button`
+const Button = styled.button`
   display: block;
   background: ${(props) =>
     props.background ? props.color : palette.pastelBlue};
