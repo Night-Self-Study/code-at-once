@@ -1,7 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import palette from "lib/styles/palette";
+
 import NoDecorationLink from "components/NoDecorationLink";
+import Button from "components/Button";
+import ProgressBar from "components/ProgressBar";
+
+import palette from "lib/styles/palette";
+import useToggle from "lib/hooks/useToggle";
+import NoImage from "lib/assets/noimage.jpg";
 
 const Header = ({ auth = undefined }) => {
   return (
@@ -29,7 +35,23 @@ const Header = ({ auth = undefined }) => {
   );
 };
 
+const UnAuthenticatedRight = () => (
+  <ul>
+    <li>
+      <NoDecorationLink to="/login">로그인</NoDecorationLink>
+    </li>
+    <li>
+      <NoDecorationLink to="/register">회원가입</NoDecorationLink>
+    </li>
+  </ul>
+);
+
 const AuthenticatedRight = () => {
+  const [isClicked, isClickedActions] = useToggle(false);
+  const onClickModal = () => {
+    isClickedActions.toggle();
+  };
+
   return (
     <ul>
       <li>
@@ -39,22 +61,23 @@ const AuthenticatedRight = () => {
         <NoDecorationLink to="/mypage">정보관리</NoDecorationLink>
       </li>
       <li>
-        <NoDecorationLink onClick={() => console.log("continue clicked")}>
+        <div onClick={onClickModal}>
           이어서 학습하기
-        </NoDecorationLink>
-      </li>
-    </ul>
-  );
-};
-
-const UnAuthenticatedRight = () => {
-  return (
-    <ul>
-      <li>
-        <NoDecorationLink to="/login">로그인</NoDecorationLink>
-      </li>
-      <li>
-        <NoDecorationLink to="/register">회원가입</NoDecorationLink>
+          {isClicked ? (
+            <div className="modal">
+              <div className="modal-contents">
+                <img alt="thumbnamil" src={NoImage} />
+                <div className="description">
+                  <span>[HTML로 혁신적인 웹사이트 만들기]</span>
+                  <ProgressBar percentage="50" />
+                  <NoDecorationLink to="/course/web/2/lecture/1">
+                    <Button className="continue-button">이어서 학습하기</Button>
+                  </NoDecorationLink>
+                </div>
+              </div>
+            </div>
+          ) : null}
+        </div>
       </li>
     </ul>
   );
@@ -91,6 +114,40 @@ const HeaderWrapper = styled.nav`
 
   ${NoDecorationLink} {
     color: white;
+  }
+
+  .modal {
+    position: fixed;
+    margin-top: 5px;
+    right: 6vw;
+    z-index: 1;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: ${palette.classicBlue};
+    pointer: cursor;
+    .modal-contents {
+      color: black;
+      display: flex;
+      padding: 10px 10px;
+      img {
+        max-width: 15vw;
+        border-radius: 8px;
+        overflow: hidden;
+        align-self: row;
+      }
+      .description {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5px;
+        margin-left: 10px;
+        justify-content: center;
+      }
+      ${NoDecorationLink} {
+        ${Button} {
+          width: 100%;
+        }
+      }
+    }
   }
 `;
 export default Header;
