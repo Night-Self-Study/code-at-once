@@ -18,13 +18,10 @@ const Header = ({ auth = undefined }) => {
             <NoDecorationLink to="/">Code at Once</NoDecorationLink>
           </li>
           <li>
-            <NoDecorationLink to="/course">Course</NoDecorationLink>
+            <NoDecorationLink to="/category">Category</NoDecorationLink>
           </li>
           <li>
-            <NoDecorationLink to="/theory">Theory</NoDecorationLink>
-          </li>
-          <li>
-            <NoDecorationLink to="/practice">Practice</NoDecorationLink>
+            <NoDecorationLink to="/leveltest">Level Test</NoDecorationLink>
           </li>
         </ul>
         <div className="right">
