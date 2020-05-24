@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Input from "components/SearchBar";
+import SearchInput from "components/SearchBar";
 import Card from "components/Card";
 
 import dummyImage from "lib/assets/library.jpg";
@@ -32,7 +32,7 @@ const Home = () => {
     isClickedActions.toggle();
   };
 
-  const dummyWeb = ["", "CSS", "JS", "TS", "React"];
+  const dummyWeb = ["", "CSS", "JavaScript", "TypeScript", "React"];
   const dummyCs = ["", "Compiler", "PL", "DataStructure", "Git"];
   const dummySystem = ["", "windows", "Ubuntu", "RedHat", "Kali-Linux"];
   const dummyAi = [
@@ -47,16 +47,16 @@ const Home = () => {
 
   return (
     <HomeWrapper>
-      <Input type="container-1" inputWidth="50%" />
+      <SearchInput type="container-1" inputWidth="50%" />
       <header>
         <li className="header-head">
           <ul>
             <HamburgerMenuIcon onClick={onClickHamburger} />
           </ul>
           <ul>WEB</ul>
-          <ul>AI</ul>
-          <ul>OS</ul>
           <ul>DATA STRUCTURE</ul>
+          <ul>OS</ul>
+          <ul>AI</ul>
         </li>
         {isClicked ? (
           <div className="header-body">
