@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import palette from "lib/styles/palette";
 
-const Input = ({ type, inputWidth }) => {
+const SearchBar = ({ type, inputWidth }) => {
   return (
-    <InputWrapper inputWidth={inputWidth}>
+    <SearchBarWrapper inputWidth={inputWidth}>
       <div className={type}>
         {type !== "container-4" ? (
           <>
@@ -22,11 +22,11 @@ const Input = ({ type, inputWidth }) => {
           </>
         )}
       </div>
-    </InputWrapper>
+    </SearchBarWrapper>
   );
 };
 
-const InputWrapper = styled.div`
+const SearchBarWrapper = styled.div`
   width: ${(props) => props.inputWidth};
   .container-1 {
     width: 100%;
@@ -204,4 +204,4 @@ const InputWrapper = styled.div`
   }
 `;
 
-export default Input;
+export default SearchBar;
