@@ -1,5 +1,4 @@
 import noImage from "lib/assets/noimage.jpg";
-
 export const dummyWeb = [
   {
     thumbnail: noImage,
@@ -26,3 +25,32 @@ export const dummyWeb = [
     level: "초급",
   },
 ];
+
+export const dummyOs = [
+  {
+    thumbnail: noImage,
+    title: "Linux를 알아보자",
+    author: "고태완",
+    level: "초급",
+  },
+  {
+    thumbnail: noImage,
+    title: "Windows에서 Linux 사용하기",
+    author: "고태완",
+    level: "중급",
+  },
+  {
+    thumbnail: noImage,
+    title: "OS 실습",
+    author: "김지혜",
+    level: "고급",
+  },
+  {
+    thumbnail: noImage,
+    title: "시스템콜 실습",
+    author: "최수연",
+    level: "초급",
+  },
+];
+
+export const dummyCategory = [dummyWeb, dummyOs];
