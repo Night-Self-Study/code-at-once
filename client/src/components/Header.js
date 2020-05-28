@@ -123,7 +123,7 @@ const HeaderWrapper = styled.nav`
     background-color: ${palette.classicBlue};
     pointer: cursor;
     .modal-contents {
-      color: black;
+      color: white;
       display: flex;
       padding: 10px 10px;
       img {
