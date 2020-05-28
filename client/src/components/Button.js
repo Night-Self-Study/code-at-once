@@ -8,8 +8,8 @@ const Button = styled.button`
   color: ${(props) => (props.color ? props.color : palette.white)};
 
   font-size: 1em;
-  margin: 20px 0px;
-  padding: 20px 0px;
+  margin: ${(props) => props.margin || "0px 0px"};
+  padding: ${(props) => props.padding || "20px 10px"};
   border: none;
   border-radius: 5px;
   cursor: pointer;
