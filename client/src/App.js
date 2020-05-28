@@ -1,27 +1,26 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Header from "components/Header";
 import styled from "styled-components";
+
+import Header from "components/Header";
 
 import HomePage from "pages/HomePage";
 import NotFoundPage from "pages/NotFoundPage";
 import CoursePage from "pages/CoursePage";
-import TheoryPage from "pages/TheoryPage";
-import PracticePage from "pages/PracticePage";
+import CategoryPage from "pages/CategoryPage";
 import RegisterPage from "pages/RegisterPage";
 import LoginPage from "pages/LoginPage";
 
 const App = () => {
   return (
     <>
-      <Header auth={false} />
+      <Header auth={true} />
       <Main>
         <MainWrapper>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/course" component={CoursePage} />
-            <Route path="/theory" component={TheoryPage} />
-            <Route path="/practice" component={PracticePage} />
+            <Route path="/category" component={CategoryPage} />
             <Route path="/register" component={RegisterPage} />
             <Route path="/login" component={LoginPage} />
             <Route component={NotFoundPage} />
