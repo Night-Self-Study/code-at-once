@@ -52,6 +52,58 @@ const dummyCourse = {
       level: "초급",
     },
   ],
+  ai: [
+    {
+      thumbnail: noImage,
+      title: "Supervised Learning",
+      author: "고태완",
+      level: "초급",
+    },
+    {
+      thumbnail: noImage,
+      title: "Unsupervised Learning",
+      author: "고태완",
+      level: "중급",
+    },
+    {
+      thumbnail: noImage,
+      title: "Classification",
+      author: "김지혜",
+      level: "고급",
+    },
+    {
+      thumbnail: noImage,
+      title: "Regression",
+      author: "최수연",
+      level: "초급",
+    },
+  ],
+  datastructure: [
+    {
+      thumbnail: noImage,
+      title: "Stack",
+      author: "고태완",
+      level: "초급",
+    },
+    {
+      thumbnail: noImage,
+      title: "Circular Queue",
+      author: "고태완",
+      level: "중급",
+    },
+    {
+      thumbnail: noImage,
+      title: "Graph",
+      author: "김지혜",
+      level: "고급",
+    },
+    {
+      thumbnail: noImage,
+      title: "Tree",
+      author: "최수연",
+      level: "초급",
+    },
+  ],
 };
 
 export default dummyCourse;

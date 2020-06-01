@@ -35,9 +35,11 @@ const CourseListSection = styled.section`
     justify-content: center;
     align-items: center;
 
-    margin: 10px;
+    margin: 10px 0px;
     ${Button} {
       flex-grow: 1;
+      margin: 0px;
+      padding: 30px 0px;
     }
   }
 `;
