@@ -27,7 +27,7 @@ const SearchBar = ({ type, inputWidth }) => {
 };
 
 const SearchBarWrapper = styled.div`
-  width: ${(props) => props.inputWidth} || 100%;
+  width: ${(props) => props.inputWidth || "100%"};
   .container-1 {
     width: 100%;
     vertical-align: middle;
