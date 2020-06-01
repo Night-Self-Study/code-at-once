@@ -77,7 +77,7 @@ const CardWrapper = styled.div`
 `;
 
 const LongCardWrapper = styled.div`
-  margin: 10px 20px;
+  margin: 20px 0px;
   border: 1px solid black;
   border-radius: 8px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
