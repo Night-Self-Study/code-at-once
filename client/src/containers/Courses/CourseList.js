@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import palette from "lib/styles/palette";
 
 import Card from "components/Card";
 import Button from "components/Button";

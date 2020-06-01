@@ -29,8 +29,6 @@ const CategoryList = ({ history, match }) => {
           <CategoryButton>중급</CategoryButton>
         </div>
       </div>
-      {console.log(categoryName)}
-      {console.log(dummyCourse[categoryName])}
       <CourseList
         category={categoryName}
         data={dummyCourse[categoryName]}

@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Route } from "react-router-dom";
 import palette from "lib/styles/palette";
 
-import { dummyCategory } from "lib/dummyCourse";
 import NoDecorationLink from "components/NoDecorationLink";
 import SimpleCard from "components/SimpleCard";
 
