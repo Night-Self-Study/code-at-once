@@ -7,7 +7,7 @@ import { dummyCategory } from "lib/dummyCourse";
 import NoDecorationLink from "components/NoDecorationLink";
 import SimpleCard from "components/SimpleCard";
 
-const categories = ["WEB", "OS", "AI", "DATA-STRUCTURE", "SECURITY"];
+const categories = ["WEB", "OS", "AI", "DATA STRUCTURE", "SECURITY"];
 const CategoryIndex = ({ match }) => {
   return (
     <CategoryIndexWrapper>
@@ -17,7 +17,7 @@ const CategoryIndex = ({ match }) => {
           return (
             <NoDecorationLink
               key={category}
-              to={`${match.url}/${category.toLowerCase()}`}
+              to={`${match.url}/${category.replace(" ", "").toLowerCase()}`}
             >
               <CategorySimpleCard background={palette.classicBlue}>
                 {category}
