@@ -10,6 +10,8 @@ import CoursePage from "pages/CoursePage";
 import CategoryPage from "pages/CategoryPage";
 import RegisterPage from "pages/RegisterPage";
 import LoginPage from "pages/LoginPage";
+import CategoryIndex from "containers/Categories/CategoryIndex";
+import CategoryRouter from "containers/Categories/CategoryRouter";
 
 const App = () => {
   return (
@@ -20,7 +22,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/course" component={CoursePage} />
-            <Route path="/category" component={CategoryPage} />
+            <Route path="/category" component={CategoryRouter} />
             <Route path="/register" component={RegisterPage} />
             <Route path="/login" component={LoginPage} />
             <Route component={NotFoundPage} />
