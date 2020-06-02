@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 
 import palette from "lib/styles/palette";
@@ -6,32 +6,62 @@ import palette from "lib/styles/palette";
 import SimpleSearchBar from "components/SimpleSearchBar";
 import Button from "components/Button";
 import CourseList from "containers/Courses/CourseList";
-
+import { replaceWhiteSpaceAndLowerCase } from "lib/utils";
 import dummyCourse from "lib/dummyCourse";
+
+const buttonGroup = ["전체", "초급", "중급", "고급"];
 
 const CategoryList = ({ history, match }) => {
   const [inputValue, setInputValue] = useState("");
   const categoryName = match.params.category;
+  const originalData = dummyCourse[categoryName];
+  const [courseData, setCourseData] = useState(originalData);
+  const [latestButtonIndex, setLatestButtonIndex] = useState(0);
 
-  useEffect(() => {
-    console.log(inputValue);
-  }, [inputValue]);
+  const onClickButton = (level, e) => {
+    const buttonObj = { 전체: 0, 초급: 1, 중급: 2, 고급: 3 };
+    setLatestButtonIndex(buttonObj[e.currentTarget.innerHTML]);
+    if (level === "전체") setCourseData(originalData);
+    else {
+      setCourseData(
+        originalData.filter((item) =>
+          replaceWhiteSpaceAndLowerCase(item.level).includes(level)
+        )
+      );
+    }
+  };
+
   return (
     <CategoryPageWrapper>
       <div className="header">
         <SimpleSearchBar
           value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          onChange={(e) => {
+            const input = replaceWhiteSpaceAndLowerCase(e.target.value);
+            console.log(input);
+            setInputValue(e.target.value);
+            setCourseData(
+              originalData.filter((item) =>
+                replaceWhiteSpaceAndLowerCase(item.title).includes(input)
+              )
+            );
+          }}
         />
         <div className="buttons">
-          <CategoryButton padding={"10px 20px"}>전체</CategoryButton>
-          <CategoryButton>초급</CategoryButton>
-          <CategoryButton>중급</CategoryButton>
+          {buttonGroup.map((button, index) => (
+            <CategoryButton
+              clicked={index === latestButtonIndex * 1 ? true : false}
+              key={index}
+              onClick={(e) => onClickButton(button, e)}
+            >
+              {button}
+            </CategoryButton>
+          ))}
         </div>
       </div>
       <CourseList
         category={categoryName}
-        data={dummyCourse[categoryName]}
+        data={courseData}
         goBack={history.goBack}
       />
     </CategoryPageWrapper>
@@ -41,10 +71,14 @@ const CategoryList = ({ history, match }) => {
 const CategoryButton = styled(Button)`
   padding: 0px 20px;
   margin: 0px 10px;
-  &:focus {
+
+  color: ${(props) => (props.clicked ? "white" : "")};
+  background: ${(props) => (props.clicked ? palette.classicBlue : "")};
+
+  /* &:focus {
     color: black;
     background: orange;
-  }
+  } */}
 `;
 const CategoryPageWrapper = styled.div`
   .header {
