@@ -72,10 +72,8 @@ const CategoryDetail = ({ history, match }) => {
 const CategoryButton = styled(Button)`
   padding: 0px 20px;
   margin: 0px 10px;
-
   color: ${(props) => (props.clicked ? "white" : "")};
   background: ${(props) => (props.clicked ? palette.classicBlue : "")};
-
   /* &:focus {
     color: black;
     background: orange;

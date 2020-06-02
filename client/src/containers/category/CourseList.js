@@ -33,7 +33,6 @@ const CourseListSection = styled.section`
     flex: 1;
     justify-content: center;
     align-items: center;
-
     margin: 10px 0px;
     ${Button} {
       flex-grow: 1;
