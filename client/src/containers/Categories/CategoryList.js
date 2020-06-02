@@ -30,22 +30,21 @@ const CategoryList = ({ history, match }) => {
       );
     }
   };
-
+  const onInputChange = (e) => {
+    const input = replaceWhiteSpaceAndLowerCase(e.target.value);
+    setInputValue(e.target.value);
+    setCourseData(
+      originalData.filter((item) =>
+        replaceWhiteSpaceAndLowerCase(item.title).includes(input)
+      )
+    );
+  };
   return (
     <CategoryPageWrapper>
       <div className="header">
         <SimpleSearchBar
           value={inputValue}
-          onChange={(e) => {
-            const input = replaceWhiteSpaceAndLowerCase(e.target.value);
-            console.log(input);
-            setInputValue(e.target.value);
-            setCourseData(
-              originalData.filter((item) =>
-                replaceWhiteSpaceAndLowerCase(item.title).includes(input)
-              )
-            );
-          }}
+          onChange={(e) => onInputChange(e)}
         />
         <div className="buttons">
           {buttonGroup.map((button, index) => (
