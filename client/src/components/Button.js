@@ -2,9 +2,8 @@ import styled from "styled-components";
 import palette from "lib/styles/palette";
 
 const Button = styled.button`
-  display: block;
   background: ${(props) =>
-    props.background ? props.color : palette.pastelBlue};
+    props.background ? props.background : palette.pastelBlue};
   color: ${(props) => (props.color ? props.color : palette.white)};
 
   font-size: 1em;
