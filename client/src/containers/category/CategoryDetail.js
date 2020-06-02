@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import SimpleSearchBar from "components/SimpleSearchBar";
 import Button from "components/Button";
+import NoDecorationLink from "components/NoDecorationLink";
 
 import { replaceWhiteSpaceAndLowerCase } from "lib/utils";
 import dummyCourse from "lib/dummyCourse";
@@ -44,6 +45,9 @@ const CategoryDetail = ({ history, match }) => {
   return (
     <CategoryPageWrapper>
       <div className="header">
+        <Button as={NoDecorationLink} to={`${match.url}/leveltest`}>
+          Level Test
+        </Button>
         <SimpleSearchBar
           value={inputValue}
           onChange={(e) => onInputChange(e)}
@@ -80,6 +84,10 @@ const CategoryButton = styled(Button)`
   } */}
 `;
 const CategoryPageWrapper = styled.div`
+  ${Button} {
+    flex-basis: 30%;
+    text-align: center;
+  }
   .header {
     display: flex;
     justify-content: space-between;
