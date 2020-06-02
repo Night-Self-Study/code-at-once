@@ -55,4 +55,5 @@ const CategorySimpleCard = styled(SimpleCard)`
     background: ${palette.pastelBlue};
   }
 `;
+
 export default CategoryIndex;

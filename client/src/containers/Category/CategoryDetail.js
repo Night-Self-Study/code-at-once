@@ -5,13 +5,13 @@ import palette from "lib/styles/palette";
 
 import SimpleSearchBar from "components/SimpleSearchBar";
 import Button from "components/Button";
-import CourseList from "containers/Categories/CourseList";
+import CourseList from "containers/Category/CourseList";
 import { replaceWhiteSpaceAndLowerCase } from "lib/utils";
 import dummyCourse from "lib/dummyCourse";
 
 const buttonGroup = ["전체", "초급", "중급", "고급"];
 
-const CategoryList = ({ history, match }) => {
+const CategoryDetail = ({ history, match }) => {
   const [inputValue, setInputValue] = useState("");
   const categoryName = match.params.category;
   const originalData = dummyCourse[categoryName];
@@ -105,4 +105,4 @@ const CategoryPageWrapper = styled.div`
   }
 `;
 
-export default CategoryList;
+export default CategoryDetail;
