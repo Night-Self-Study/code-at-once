@@ -15,6 +15,7 @@ const CategoryList = ({ history, match }) => {
   const [inputValue, setInputValue] = useState("");
   const categoryName = match.params.category;
   const originalData = dummyCourse[categoryName];
+
   const [courseData, setCourseData] = useState(originalData);
   const [latestButtonIndex, setLatestButtonIndex] = useState(0);
 
@@ -39,6 +40,7 @@ const CategoryList = ({ history, match }) => {
       )
     );
   };
+
   return (
     <CategoryPageWrapper>
       <div className="header">
