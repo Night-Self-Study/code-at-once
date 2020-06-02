@@ -5,7 +5,7 @@ import palette from "lib/styles/palette";
 
 import SimpleSearchBar from "components/SimpleSearchBar";
 import Button from "components/Button";
-import CourseList from "containers/Courses/CourseList";
+import CourseList from "containers/Categories/CourseList";
 import { replaceWhiteSpaceAndLowerCase } from "lib/utils";
 import dummyCourse from "lib/dummyCourse";
 
