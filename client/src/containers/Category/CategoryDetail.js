@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 
-import palette from "lib/styles/palette";
-
 import SimpleSearchBar from "components/SimpleSearchBar";
 import Button from "components/Button";
-import CourseList from "containers/Category/CourseList";
+
 import { replaceWhiteSpaceAndLowerCase } from "lib/utils";
 import dummyCourse from "lib/dummyCourse";
+import palette from "lib/styles/palette";
 
+import CourseList from "containers/category/CourseList";
 const buttonGroup = ["전체", "초급", "중급", "고급"];
 
 const CategoryDetail = ({ history, match }) => {

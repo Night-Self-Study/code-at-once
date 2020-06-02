@@ -1,8 +1,8 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
-import CategoryIndex from "containers/Category/CategoryIndex";
-import CategoryDetail from "containers/Category/CategoryDetail";
+import CategoryIndex from "containers/category/CategoryIndex";
+import CategoryDetail from "containers/category/CategoryDetail";
 
 const CategoryPage = ({ match }) => {
   return (
