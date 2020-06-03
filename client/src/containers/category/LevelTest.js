@@ -8,7 +8,9 @@ const LevelTest = ({ match }) => {
 
   const handleCreate = (data) => {
     console.log(data);
+    //서버에 결과 보내서 불러오기
   };
+
   return (
     <LevelTestWrapper>
       <div className="header">
@@ -23,6 +25,7 @@ const LevelTest = ({ match }) => {
         <TestForm
           onCreate={handleCreate}
           problems={dummyLevelTest["testId"][testId]["problems"]}
+          linkTo={`${match.url}/result`}
         />
       </div>
     </LevelTestWrapper>
