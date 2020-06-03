@@ -21,7 +21,7 @@ const TestFormLabel = styled.label`
   display: block;
   margin: 15px;
   padding: 15px;
-  border: 1px solid gray;
+  border: 2px solid gray;
   border-radius: 8px;
   input {
     margin-right: 10px;
