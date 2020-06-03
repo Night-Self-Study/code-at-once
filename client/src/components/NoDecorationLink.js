@@ -6,6 +6,7 @@ const NoDecorationLink = styled(Link)`
   text-decoration: none;
   font-weight: 200;
   color: ${(props) => (props.color ? props.color : palette.black)};
+  user-drag: none;
 `;
 
 export default NoDecorationLink;
