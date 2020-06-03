@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import palette from "lib/styles/palette";
 
 const ProgressBar = ({ percentage }) => {
   return (
@@ -13,14 +14,14 @@ const ProgressBar = ({ percentage }) => {
 const ProgressBarWrapper = styled.div`
   width: 100%;
   height: 14px;
-  background-color: white;
+  background-color: ${palette.whiteGray};
   border-radius: 8px;
   margin: 10px 0px;
   .current-percentage {
     width: ${(props) => props.percentage}%;
     height: 100%;
     line-height: 14px;
-    background-color: green;
+    background-color: ${palette.jade};
     border-radius: 8px;
   }
   .value {
