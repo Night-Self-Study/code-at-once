@@ -9,6 +9,8 @@ const palette = {
   /* white */
   white: "#FFFFFF",
   black: "#000000",
+  jade: "#00A86B",
+  whiteGray: "#B2B2B2",
 };
 
 export default palette;
