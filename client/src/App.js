@@ -40,6 +40,6 @@ const MainWrapper = styled.div`
 
 const Main = styled.main`
   padding: 2em 0px;
-  height: 100%;
+  height: auto;
 `;
 export default App;
