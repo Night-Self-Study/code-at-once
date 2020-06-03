@@ -1,8 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import dummyLevelTest from "lib/dummyLevelTest";
+import TestForm from "components/testForm/TestForm";
 
 const LevelTest = ({ match }) => {
+  const testId = 1;
+
+  const handleCreate = (data) => {
+    console.log(data);
+  };
   return (
     <LevelTestWrapper>
       <div className="header">
@@ -13,7 +19,12 @@ const LevelTest = ({ match }) => {
           바랍니다.
         </p>
       </div>
-      <div className="test"></div>
+      <div className="test">
+        <TestForm
+          onCreate={handleCreate}
+          problems={dummyLevelTest["testId"][testId]["problems"]}
+        />
+      </div>
     </LevelTestWrapper>
   );
 };
@@ -29,6 +40,9 @@ const LevelTestWrapper = styled.div`
   }
   .description {
     font-size: 1em;
+  }
+  .test {
+    margin: 20px 0px;
   }
 `;
 export default LevelTest;
