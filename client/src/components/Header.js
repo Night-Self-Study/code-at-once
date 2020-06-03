@@ -20,9 +20,6 @@ const Header = ({ auth = undefined }) => {
           <li>
             <NoDecorationLink to="/category">Category</NoDecorationLink>
           </li>
-          <li>
-            <NoDecorationLink to="/leveltest">Level Test</NoDecorationLink>
-          </li>
         </ul>
         <div className="right">
           {auth ? <AuthenticatedRight /> : <UnAuthenticatedRight />}
