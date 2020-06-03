@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Button from "components/Button";
 
 import TestFormProblem from "components/testForm/TestFormProblem";
+import NoDecorationLink from "components/NoDecorationLink";
 
 /*
           no: 1,
@@ -12,16 +13,24 @@ import TestFormProblem from "components/testForm/TestFormProblem";
           answer: "Yes",
           score: 10,
 */
-const TestForm = ({ onCreate, problems }) => {
-  const [value, setValue] = useState({
-    1: "Yes",
-    2: "Yes",
-    3: "a",
-  });
 
+let initialState = {};
+const TestForm = ({ onCreate, problems, linkTo }) => {
+  const [value, setValue] = useState(initialState);
   const onChange = (e) => {
     const currentTarget = e.currentTarget;
     setValue({ ...value, [currentTarget.name]: currentTarget.value });
+  };
+
+  useEffect(() => {
+    problems.forEach((item, index) => {
+      initialState[index + 1] = "";
+    });
+    console.log(initialState);
+  }, [problems]);
+
+  const validation = () => {
+    Object.keys(value);
   };
 
   return (
@@ -34,7 +43,14 @@ const TestForm = ({ onCreate, problems }) => {
       {problems.map((item) => (
         <TestFormProblem key={item.no} item={item} onChange={onChange} />
       ))}
-      <Button type="submit">제출</Button>
+
+      <Button
+        as={NoDecorationLink}
+        to={{ pathname: linkTo, state: value }}
+        type="submit"
+      >
+        제출
+      </Button>
     </TestFormWrapper>
   );
 };
@@ -44,6 +60,7 @@ const TestFormWrapper = styled.form`
   flex-direction: column;
 
   ${Button} {
+    text-align: center;
     margin: 15px;
   }
 `;
