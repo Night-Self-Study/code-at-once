@@ -54,6 +54,7 @@ const CategorySimpleCard = styled(SimpleCard)`
   &:hover {
     background: ${palette.pastelBlue};
   }
+  transition: background 0.3s linear;
 `;
 
 export default CategoryIndex;

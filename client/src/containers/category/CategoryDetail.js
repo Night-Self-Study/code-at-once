@@ -78,10 +78,11 @@ const CategoryButton = styled(Button)`
   margin: 0px 10px;
   color: ${(props) => (props.clicked ? "white" : "")};
   background: ${(props) => (props.clicked ? palette.classicBlue : "")};
-  /* &:focus {
-    color: black;
-    background: orange;
-  } */}
+  &:hover {
+    color: "white";
+    background: ${palette.classicBlue};
+  }
+  transition: background 0.3s linear, color 0.3s linear;
 `;
 const CategoryPageWrapper = styled.div`
   ${Button} {
