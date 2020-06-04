@@ -7,7 +7,7 @@ import Button from "components/Button";
 const CourseList = ({ category, data = [], goBack }) => {
   const content = data.map((item) => (
     <li key={item.title}>
-      <Card isLong {...item} />
+      <Card isLong {...item} category={category} />
     </li>
   ));
 
