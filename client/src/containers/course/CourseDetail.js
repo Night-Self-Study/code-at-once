@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import IndexList from "components/IndexList";
+
 import noImage from "lib/assets/noimage.jpg";
 import dummyCourse from "lib/dummyCourse";
+import dummyIndex from "lib/dummyIndex";
 
 const CourseDetail = ({ match }) => {
   const { category, id } = match.params;
   const { title, author, level } = dummyCourse[category][id];
+  const [course, setCourse] = useState(dummyIndex);
+
   useEffect(() => {
     //axios.get category=match.params.category
     //          id      =match.params.id
@@ -21,10 +26,7 @@ const CourseDetail = ({ match }) => {
         </div>
         <img alt="course_image" src={noImage} />
       </div>
-      <div className="contents">
-        {match.params.category}
-        {match.params.id}
-      </div>
+      <IndexList indexContents={course} />
     </CourseDetailWrapper>
   );
 };
