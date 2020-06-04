@@ -59,7 +59,14 @@ const LevelTestResult = ({ location, match }) => {
 
   return (
     <LevelTestResultWrapper>
-      {isLoading ? "채점하는 중입니다." : <Content />}
+      {isLoading ? (
+        <div>
+          <div>채점 중입니다.</div>
+          <div className="dot-pulse" />
+        </div>
+      ) : (
+        <Content />
+      )}
     </LevelTestResultWrapper>
   );
 };
