@@ -8,7 +8,9 @@ const errorPath = "/error";
 
 const Card = ({
   isLong = false,
+  category,
   path = errorPath,
+  id,
   thumbnail = noImage,
   level = "초급",
   title = "title을 불러오지 못했습니다.",
@@ -17,7 +19,9 @@ const Card = ({
 }) => {
   return isLong ? (
     <LongCardWrapper>
-      <NoDecorationLink to={path}>
+      <NoDecorationLink
+        to={id === undefined ? path : `/course/${category}/${id}`}
+      >
         <img alt="dummyImage_alt" src={thumbnail} />
         <div className="description">
           <div className="level">[{level}]</div>
@@ -33,7 +37,9 @@ const Card = ({
     </LongCardWrapper>
   ) : (
     <CardWrapper>
-      <NoDecorationLink to={path}>
+      <NoDecorationLink
+        to={id === undefined ? path : `/course/${category}/${id}`}
+      >
         <img alt="dummyImage_alt" src={thumbnail} />
 
         <div className="level">[{level}]</div>
