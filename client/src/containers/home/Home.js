@@ -17,8 +17,9 @@ const Home = () => {
     const dummy = [];
     for (let count = 0; count < 4; count++) {
       dummy.push({
-        path: "/course/web/1",
+        id: count,
         title: `Course${count}`,
+        category: count % 2 === 0 ? "web" : "os",
         thumbnail: count % 3 === 1 ? dummyImage : undefined,
         level: count % 3 === 1 ? "초급" : "중급",
         author: `author${count}`,
@@ -74,14 +75,7 @@ const Home = () => {
       </header>
       <section className="courses">
         {dummy.map((item) => (
-          <Card
-            key={item.title}
-            path={item.path}
-            title={item.title}
-            thumbnail={item.thumbnail}
-            level={item.level}
-            author={item.author}
-          />
+          <Card key={item.title} {...item} />
         ))}
       </section>
     </HomeWrapper>
