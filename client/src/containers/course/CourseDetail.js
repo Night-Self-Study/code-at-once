@@ -26,7 +26,7 @@ const CourseDetail = ({ match }) => {
         </div>
         <img alt="course_image" src={noImage} />
       </div>
-      <IndexList indexContents={course} />
+      <IndexList indexContents={course} match={match} />
     </CourseDetailWrapper>
   );
 };

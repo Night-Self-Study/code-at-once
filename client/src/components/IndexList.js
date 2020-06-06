@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import NoDecorationLink from "components/NoDecorationLink";
 
-const IndexList = ({ indexContents = [] }) => {
+const IndexList = ({ match, indexContents = [] }) => {
   return (
     <IndexListWrapper>
       <ol>
@@ -10,7 +11,9 @@ const IndexList = ({ indexContents = [] }) => {
             <li className="title">{content.title}</li>
             <ul>
               {content.contents.map((li) => (
-                <li>{li}</li>
+                <NoDecorationLink to={`${match.url}/course/${li.lectureId}`}>
+                  <li>{li.subtitle}</li>
+                </NoDecorationLink>
               ))}
             </ul>
           </div>
