@@ -33,8 +33,7 @@ const CourseDetail = ({ match }) => {
 
 const CourseDetailWrapper = styled.div`
   width: 80%;
-  margin: 0 auto;
-
+  margin: 2em auto;
   .header {
     display: flex;
     justify-content: space-between;
