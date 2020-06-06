@@ -61,7 +61,7 @@ const LevelTestResult = ({ location, match }) => {
     <LevelTestResultWrapper>
       {isLoading ? (
         <div>
-          <div>채점 중입니다.</div>
+          <h1 style={{ fontSize: "32px" }}>채점 중입니다.</h1>
           <div className="dot-pulse" />
         </div>
       ) : (
