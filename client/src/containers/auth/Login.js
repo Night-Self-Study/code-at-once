@@ -27,6 +27,7 @@ const LoginWrapper = styled.div`
 
   Button {
     text-algin: center;
+    margin: 20px 0px;
   }
 `;
 export default Login;
