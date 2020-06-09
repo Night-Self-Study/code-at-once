@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import AceEditor from "react-ace";
 
@@ -10,6 +10,7 @@ const EditorValue = `function consoleLogExample() {
 }`;
 
 const Editor = () => {
+  const [editorValue, setEditorValue] = useState(EditorValue);
   return (
     <EditorWrapper>
       <AceEditor
@@ -19,12 +20,14 @@ const Editor = () => {
         theme="monokai"
         name="webEditor"
         //   onLoad={this.onLoad}
-        //   onChange={this.onChange}
+        value={editorValue}
+        onChange={(v) => {
+          setEditorValue(v);
+        }}
         fontSize={14}
         showPrintMargin={true}
         showGutter={true}
         highlightActiveLine={true}
-        value={EditorValue}
         setOptions={{
           enableBasicAutocompletion: true,
           enableLiveAutocompletion: true,
@@ -41,5 +44,9 @@ const EditorWrapper = styled.div`
   width: 100%;
   height: 100%;
   background: white;
+  * {
+    font-family: consolas;
+    line-height: 1;
+  }
 `;
 export default Editor;
