@@ -6,7 +6,7 @@ import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-monokai";
 
 const EditorValue = `function consoleLogExample() {
-    console.log();
+    console.log("test");
 }`;
 
 const Editor = () => {
