@@ -3,6 +3,7 @@ import styled from "styled-components";
 import HamburgerMenuIcon from "components/HamburgerMenuIcon";
 import palette from "lib/styles/palette";
 
+import Learn from "containers/lecture/Learn";
 import Terminal from "containers/lecture/Terminal";
 import Editor from "containers/lecture/Editor";
 import QandA from "containers/lecture/QandA";
@@ -54,7 +55,7 @@ const LectureDetail = () => {
         </div>
         <div className="contents">
           {partitionInfo["isLearn"] ? (
-            <iframe title="html" src="https://ko.wikipedia.org/wiki/HTML5" />
+            <Learn title={"html"} src={"https://ko.wikipedia.org/wiki/HTML5"} />
           ) : (
             <QandA />
           )}
