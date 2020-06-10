@@ -11,6 +11,7 @@ const typeDefs = `
 
     type Query {
         allUser: [User]
+        getUser(id: String!, password: String!): User
     }
 
     input UserInput {
