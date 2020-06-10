@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import HamburgerMenuIcon from "components/HamburgerMenuIcon";
 import palette from "lib/styles/palette";
-import Terminal from "components/Terminal";
-import Editor from "components/Editor";
 
+import Terminal from "containers/lecture/Terminal";
+import Editor from "containers/lecture/Editor";
 import QandA from "containers/lecture/QandA";
+import Result from "containers/lecture/Result";
 
 const QANDA = "q&a";
 const LEARN = "learn";
@@ -74,7 +75,11 @@ const LectureDetail = () => {
           Terminal
         </div>
         <div className="contents">
-          {partitionInfo["isTerminal"] ? <Terminal /> : "result"}
+          {partitionInfo["isTerminal"] ? (
+            <Terminal />
+          ) : (
+            <Result result={"result"} />
+          )}
         </div>
       </div>
       <div className="menu">
