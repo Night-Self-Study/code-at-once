@@ -49,12 +49,15 @@ const AuthenticatedRight = () => {
   return (
     <ul>
       <li>
+        <NoDecorationLink to="/uploadcourse">강의 업로드</NoDecorationLink>
+      </li>
+      <li>
         <NoDecorationLink to="/logout">로그아웃</NoDecorationLink>
       </li>
       <li>
-        <NoDecorationLink to="/mypage">정보관리</NoDecorationLink>
+        <NoDecorationLink to="/mypage">마이페이지</NoDecorationLink>
       </li>
-      <li>
+      {/* <li>
         <div onClick={onClickModal}>
           이어서 학습하기
           {isClicked ? (
@@ -72,7 +75,7 @@ const AuthenticatedRight = () => {
             </div>
           ) : null}
         </div>
-      </li>
+      </li> */}
     </ul>
   );
 };
