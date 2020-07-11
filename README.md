@@ -4,7 +4,6 @@
 
 ### Member
 
-- 고태완 - client
-- 김지혜 - server
-- 최수연 - crawling
-
+- 고태완 - Develop web
+- 김지혜 - Anaylze source code using Dom-Judge
+- 최수연 - Develop server
