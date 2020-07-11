@@ -10,6 +10,8 @@ import CoursePage from "pages/CoursePage";
 import CategoryPage from "pages/CategoryPage";
 import RegisterPage from "pages/RegisterPage";
 import LoginPage from "pages/LoginPage";
+import UploadCoursePage from "pages/UploadCoursePage";
+import MyPage from "pages/MyPage";
 
 const App = () => {
   return (
@@ -21,8 +23,10 @@ const App = () => {
             <Route exact path="/" component={HomePage} />
             <Route path="/course" component={CoursePage} />
             <Route path="/category" component={CategoryPage} />
+            <Route path="/uploadcourse" component={UploadCoursePage} />
             <Route path="/register" component={RegisterPage} />
             <Route path="/login" component={LoginPage} />
+            <Route path="/mypage" component={MyPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </MainWrapper>
@@ -39,7 +43,7 @@ const MainWrapper = styled.div`
 `;
 
 const Main = styled.main`
-  padding: 2em 0px;
+  padding-top: 2em;
   height: auto;
 `;
 export default App;
