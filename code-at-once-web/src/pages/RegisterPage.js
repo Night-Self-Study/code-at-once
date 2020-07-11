@@ -2,7 +2,7 @@ import React from 'react';
 import Register from 'containers/auth/Register';
 
 const RegisterPage = () => {
-  return <Register />;
+	return <Register />;
 };
 
 export default RegisterPage;

@@ -6,57 +6,57 @@ import dummyCourse from 'lib/dummyCourse';
 import MyQandA from 'containers/mypage/MyQandA';
 
 const MyPage = () => {
-  const [isRendered, setRendered] = useState(false);
-  const [isQandA, setQandA] = useState(false);
-  useEffect(() => {
-    setRendered(true);
-  }, []);
-  const onClickTab = (tabName) => {
-    if (tabName === 'currentCourse') {
-      setQandA(false);
-      return;
-    }
-    if (tabName === 'myQandA') {
-      setQandA(true);
-      return;
-    }
-  };
-  return (
-    <MyPageWrapper isRendered={isRendered}>
-      <div className="mypage-header">
-        <p>My Page</p>
-        <hr />
-        <div className="depth-1">
-          <span>내 강좌</span>
-        </div>
-        <div className="depth-2">
-          <span onClick={() => onClickTab('currentCourse')}>
-            수강 중인 강좌
-          </span>
-          <span> | </span>
-          <span onClick={() => onClickTab('myQandA')}>내 Q&A</span>
-        </div>
-      </div>
-      <div className="course-contents">
-        {isQandA ? (
-          <MyQandA />
-        ) : (
-          <>
-            {dummyCourse['web'].map((item) => (
-              <Card isLong category="web" {...item} />
-            ))}
-          </>
-        )}
-      </div>
-    </MyPageWrapper>
-  );
+	const [isRendered, setRendered] = useState(false);
+	const [isQandA, setQandA] = useState(false);
+	useEffect(() => {
+		setRendered(true);
+	}, []);
+	const onClickTab = (tabName) => {
+		if (tabName === 'currentCourse') {
+			setQandA(false);
+			return;
+		}
+		if (tabName === 'myQandA') {
+			setQandA(true);
+			return;
+		}
+	};
+	return (
+		<MyPageWrapper isRendered={isRendered}>
+			<div className='mypage-header'>
+				<p>My Page</p>
+				<hr />
+				<div className='depth-1'>
+					<span>내 강좌</span>
+				</div>
+				<div className='depth-2'>
+					<span onClick={() => onClickTab('currentCourse')}>
+						수강 중인 강좌
+					</span>
+					<span> | </span>
+					<span onClick={() => onClickTab('myQandA')}>내 Q&A</span>
+				</div>
+			</div>
+			<div className='course-contents'>
+				{isQandA ? (
+					<MyQandA />
+				) : (
+					<>
+						{dummyCourse['web'].map((item) => (
+							<Card isLong category='web' {...item} />
+						))}
+					</>
+				)}
+			</div>
+		</MyPageWrapper>
+	);
 };
 
 const MyPageWrapper = styled.div`
   position: absolute;
   top: ${(props) =>
-    props.isRendered &&
-    document.getElementsByTagName('nav')[0].offsetHeight + 'px'}};
+		props.isRendered &&
+		document.getElementsByTagName('nav')[0].offsetHeight + 'px'}};
   left: 0;
   right: 0;
   .mypage-header {

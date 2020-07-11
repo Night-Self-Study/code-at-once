@@ -13,35 +13,35 @@ import LoginPage from 'pages/LoginPage';
 import MyPage from 'pages/MyPage';
 
 const App = () => {
-  return (
-    <>
-      <Header auth={true} />
-      <Main>
-        <MainWrapper>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/course" component={CoursePage} />
-            <Route path="/category" component={CategoryPage} />
-            <Route path="/register" component={RegisterPage} />
-            <Route path="/login" component={LoginPage} />
-            <Route path="/mypage" component={MyPage} />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </MainWrapper>
-      </Main>
-    </>
-  );
+	return (
+		<>
+			<Header auth={true} />
+			<Main>
+				<MainWrapper>
+					<Switch>
+						<Route exact path='/' component={HomePage} />
+						<Route path='/course' component={CoursePage} />
+						<Route path='/category' component={CategoryPage} />
+						<Route path='/register' component={RegisterPage} />
+						<Route path='/login' component={LoginPage} />
+						<Route path='/mypage' component={MyPage} />
+						<Route component={NotFoundPage} />
+					</Switch>
+				</MainWrapper>
+			</Main>
+		</>
+	);
 };
 
 const MainWrapper = styled.div`
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
 `;
 
 const Main = styled.main`
-  padding-top: 2em;
-  height: auto;
+	padding-top: 2em;
+	height: auto;
 `;
 export default App;
