@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import palette from "lib/styles/palette";
-import Card from "components/Card";
-import dummyCourse from "lib/dummyCourse";
-import MyQandA from "containers/mypage/MyQandA";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import palette from 'lib/styles/palette';
+import Card from 'components/Card';
+import dummyCourse from 'lib/dummyCourse';
+import MyQandA from 'containers/mypage/MyQandA';
 
 const MyPage = () => {
   const [isRendered, setRendered] = useState(false);
@@ -12,11 +12,11 @@ const MyPage = () => {
     setRendered(true);
   }, []);
   const onClickTab = (tabName) => {
-    if (tabName === "currentCourse") {
+    if (tabName === 'currentCourse') {
       setQandA(false);
       return;
     }
-    if (tabName === "myQandA") {
+    if (tabName === 'myQandA') {
       setQandA(true);
       return;
     }
@@ -30,11 +30,11 @@ const MyPage = () => {
           <span>내 강좌</span>
         </div>
         <div className="depth-2">
-          <span onClick={() => onClickTab("currentCourse")}>
+          <span onClick={() => onClickTab('currentCourse')}>
             수강 중인 강좌
           </span>
           <span> | </span>
-          <span onClick={() => onClickTab("myQandA")}>내 Q&A</span>
+          <span onClick={() => onClickTab('myQandA')}>내 Q&A</span>
         </div>
       </div>
       <div className="course-contents">
@@ -42,7 +42,7 @@ const MyPage = () => {
           <MyQandA />
         ) : (
           <>
-            {dummyCourse["web"].map((item) => (
+            {dummyCourse['web'].map((item) => (
               <Card isLong category="web" {...item} />
             ))}
           </>
@@ -56,7 +56,7 @@ const MyPageWrapper = styled.div`
   position: absolute;
   top: ${(props) =>
     props.isRendered &&
-    document.getElementsByTagName("nav")[0].offsetHeight + "px"}};
+    document.getElementsByTagName('nav')[0].offsetHeight + 'px'}};
   left: 0;
   right: 0;
   .mypage-header {

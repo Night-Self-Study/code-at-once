@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import dummyLevelTest from "lib/dummyLevelTest";
-import TestForm from "components/testForm/TestForm";
+import React from 'react';
+import styled from 'styled-components';
+import dummyLevelTest from 'lib/dummyLevelTest';
+import TestForm from 'components/testForm/TestForm';
 
 const LevelTest = ({ match }) => {
   const testId = 1;
@@ -24,7 +24,7 @@ const LevelTest = ({ match }) => {
       <div className="test">
         <TestForm
           onCreate={handleCreate}
-          problems={dummyLevelTest["testId"][testId]["problems"]}
+          problems={dummyLevelTest['testId'][testId]['problems']}
           linkTo={`${match.url}/result`}
         />
       </div>

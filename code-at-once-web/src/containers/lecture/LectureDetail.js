@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import HamburgerMenuIcon from "components/HamburgerMenuIcon";
-import palette from "lib/styles/palette";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import HamburgerMenuIcon from 'components/HamburgerMenuIcon';
+import palette from 'lib/styles/palette';
 
-import Learn from "containers/lecture/Learn";
-import Terminal from "containers/lecture/Terminal";
-import Editor from "containers/lecture/Editor";
-import QandA from "containers/lecture/QandA";
-import Result from "containers/lecture/Result";
+import Learn from 'containers/lecture/Learn';
+import Terminal from 'containers/lecture/Terminal';
+import Editor from 'containers/lecture/Editor';
+import QandA from 'containers/lecture/QandA';
+import Result from 'containers/lecture/Result';
 
-const QANDA = "q&a";
-const LEARN = "learn";
-const TERMINAL = "terminal";
-const RESULT = "result";
+const QANDA = 'q&a';
+const LEARN = 'learn';
+const TERMINAL = 'terminal';
+const RESULT = 'result';
 
 const LectureDetail = () => {
   const [partitionInfo, setPartitionInfo] = useState({
@@ -21,7 +21,7 @@ const LectureDetail = () => {
   });
 
   useEffect(() => {
-    document.getElementsByTagName("main")[0].style.background =
+    document.getElementsByTagName('main')[0].style.background =
       palette.pastelBlue;
   }, []);
 
@@ -54,8 +54,8 @@ const LectureDetail = () => {
           Q&A
         </div>
         <div className="contents">
-          {partitionInfo["isLearn"] ? (
-            <Learn title={"html"} src={"https://ko.wikipedia.org/wiki/HTML5"} />
+          {partitionInfo['isLearn'] ? (
+            <Learn title={'html'} src={'https://ko.wikipedia.org/wiki/HTML5'} />
           ) : (
             <QandA />
           )}
@@ -76,10 +76,10 @@ const LectureDetail = () => {
           Terminal
         </div>
         <div className="contents">
-          {partitionInfo["isTerminal"] ? (
+          {partitionInfo['isTerminal'] ? (
             <Terminal />
           ) : (
-            <Result result={"result"} />
+            <Result result={'result'} />
           )}
         </div>
       </div>
@@ -115,7 +115,7 @@ const LectureDetailWrapper = styled.div`
       user-drag: none;
 
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         right: 0;
         width: 0;

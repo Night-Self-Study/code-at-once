@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
-import styled from "styled-components";
-import palette from "lib/styles/palette";
+import React, { useRef, useState } from 'react';
+import styled from 'styled-components';
+import palette from 'lib/styles/palette';
 
 const Terminal = () => {
   const inputRef = useRef();

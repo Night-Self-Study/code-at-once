@@ -1,8 +1,8 @@
-import React from "react";
-import Home from "containers/home/Home";
+import React from 'react';
+import Home from 'containers/home/Home';
 
-const HomePage = () => {
-  return <Home />;
+const HomePage = ({}) => {
+  return <Home match />;
 };
 
 export default HomePage;

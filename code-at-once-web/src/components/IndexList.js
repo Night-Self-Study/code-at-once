@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import NoDecorationLink from "components/NoDecorationLink";
+import React from 'react';
+import styled from 'styled-components';
+import NoDecorationLink from 'components/NoDecorationLink';
 
 const IndexList = ({ match, indexContents = [] }) => {
   return (

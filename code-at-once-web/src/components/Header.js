@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import NoDecorationLink from "components/NoDecorationLink";
-import Button from "components/Button";
-import ProgressBar from "components/ProgressBar";
+import NoDecorationLink from 'components/NoDecorationLink';
+import Button from 'components/Button';
+import ProgressBar from 'components/ProgressBar';
 
-import palette from "lib/styles/palette";
-import useToggle from "lib/hooks/useToggle";
-import NoImage from "lib/assets/noimage.jpg";
+import palette from 'lib/styles/palette';
+import useToggle from 'lib/hooks/useToggle';
+import NoImage from 'lib/assets/noimage.jpg';
 
 const Header = ({ auth = undefined }) => {
   return (

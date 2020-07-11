@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import Button from "components/Button";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import Button from 'components/Button';
 
-import TestFormProblem from "components/testForm/TestFormProblem";
-import NoDecorationLink from "components/NoDecorationLink";
+import TestFormProblem from 'components/testForm/TestFormProblem';
+import NoDecorationLink from 'components/NoDecorationLink';
 
 /*
           no: 1,
@@ -24,7 +24,7 @@ const TestForm = ({ onCreate, problems, linkTo }) => {
 
   useEffect(() => {
     problems.forEach((item, index) => {
-      initialState[index + 1] = "";
+      initialState[index + 1] = '';
     });
     console.log(initialState);
   }, [problems]);

@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import ProgressBar from "components/ProgressBar";
-import Button from "components/Button";
-import NoDecorationLink from "components/NoDecorationLink";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import ProgressBar from 'components/ProgressBar';
+import Button from 'components/Button';
+import NoDecorationLink from 'components/NoDecorationLink';
 
 const LevelTestResult = ({ location, match }) => {
   const { state } = location;
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("Do axios.get");
+    console.log('Do axios.get');
     console.log(JSON.stringify(state));
   }, [state]);
 
@@ -36,7 +36,7 @@ const LevelTestResult = ({ location, match }) => {
           <div className="result">
             <Button
               as={NoDecorationLink}
-              to={`/category/${match.params["category"]}`}
+              to={`/category/${match.params['category']}`}
             >
               중급자 코스
             </Button>
@@ -47,7 +47,7 @@ const LevelTestResult = ({ location, match }) => {
           <div className="result">
             <Button
               as={NoDecorationLink}
-              to={`/category/${match.params["category"]}`}
+              to={`/category/${match.params['category']}`}
             >
               초급자 코스
             </Button>
@@ -61,7 +61,7 @@ const LevelTestResult = ({ location, match }) => {
     <LevelTestResultWrapper>
       {isLoading ? (
         <div>
-          <h1 style={{ fontSize: "32px" }}>채점 중입니다.</h1>
+          <h1 style={{ fontSize: '32px' }}>채점 중입니다.</h1>
           <div className="dot-pulse" />
         </div>
       ) : (

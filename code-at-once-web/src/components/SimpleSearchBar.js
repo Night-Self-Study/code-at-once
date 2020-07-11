@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const SimpleSearchBar = styled.input`
   flex-grow: 1;

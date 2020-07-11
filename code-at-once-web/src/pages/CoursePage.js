@@ -1,7 +1,7 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import CourseDetail from "containers/course/CourseDetail";
-import LectureDetail from "containers/lecture/LectureDetail";
+import React from 'react';
+import { Route } from 'react-router-dom';
+import CourseDetail from 'containers/course/CourseDetail';
+import LectureDetail from 'containers/lecture/LectureDetail';
 
 const CoursePage = ({ match }) => {
   return (

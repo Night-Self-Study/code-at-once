@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import QandAForm from "containers/lecture/QandAForm";
-import Input from "components/Input";
+import QandAForm from 'containers/lecture/QandAForm';
+import Input from 'components/Input';
 
-const QUESTION = "question";
-const ANSWER = "answer";
+const QUESTION = 'question';
+const ANSWER = 'answer';
 
 const QandA = () => {
   return (

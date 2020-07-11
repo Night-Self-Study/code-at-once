@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import questionMark from "lib/assets/question.png";
-import answerMark from "lib/assets/answer.png";
-import palette from "lib/styles/palette";
+import React from 'react';
+import styled from 'styled-components';
+import questionMark from 'lib/assets/question.png';
+import answerMark from 'lib/assets/answer.png';
+import palette from 'lib/styles/palette';
 
-export const QUESTION = "question";
-export const ANSWER = "answer";
+export const QUESTION = 'question';
+export const ANSWER = 'answer';
 
 const QandAForm = ({ type, paragraph }) => {
   const getMark = (type) => {
@@ -15,13 +15,13 @@ const QandAForm = ({ type, paragraph }) => {
     if (type === ANSWER) {
       return answerMark;
     }
-    console.log("getMark() Error");
+    console.log('getMark() Error');
   };
   const mark = getMark(type);
   return (
     <QandAFormWrapper>
       <img src={mark} alt="mark" />
-      <div className={"paragraph-" + (type === ANSWER ? "answer" : "question")}>
+      <div className={'paragraph-' + (type === ANSWER ? 'answer' : 'question')}>
         {paragraph}
       </div>
     </QandAFormWrapper>

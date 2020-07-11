@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import AceEditor from "react-ace";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import AceEditor from 'react-ace';
 
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/theme-monokai";
+import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/theme-monokai';
 
 const EditorValue = `function consoleLogExample() {
     console.log("test");
@@ -14,7 +14,7 @@ const Editor = () => {
   return (
     <EditorWrapper>
       <AceEditor
-        style={{ width: "100%", height: "100%" }}
+        style={{ width: '100%', height: '100%' }}
         placeholder="Placeholder Text"
         mode="javascript"
         theme="monokai"

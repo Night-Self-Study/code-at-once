@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Input from "components/Input";
+import React from 'react';
+import styled from 'styled-components';
+import Input from 'components/Input';
 
 const CustomForm = ({ data }) => {
   return (

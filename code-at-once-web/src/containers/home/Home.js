@@ -1,138 +1,61 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import SearchInput from "components/SearchBar";
-import Card from "components/Card";
+import React from 'react';
+import styled from 'styled-components';
+import palette from 'lib/styles/palette';
 
-import dummyImage from "lib/assets/library.jpg";
-import palette from "lib/styles/palette";
+import NoDecorationLink from 'components/NoDecorationLink';
+import SimpleCard from 'components/SimpleCard';
 
-import HamburgerMenuIcon from "components/HamburgerMenuIcon";
-import useToggle from "lib/hooks/useToggle";
+const subjects = ['WEB', 'OS', 'AI', 'DATA STRUCTURE', 'SECURITY'];
 
-const Home = () => {
-  const [searchBar, setSearchBar] = useState("");
-  const [isClicked, isClickedActions] = useToggle(false);
-
-  const makeDummyCard = () => {
-    const dummy = [];
-    for (let count = 0; count < 4; count++) {
-      dummy.push({
-        id: count,
-        title: `Course${count}`,
-        category: count % 2 === 0 ? "web" : "os",
-        thumbnail: count % 3 === 1 ? dummyImage : undefined,
-        level: count % 3 === 1 ? "초급" : "중급",
-        author: `author${count}`,
-      });
-    }
-    return dummy;
-  };
-  const dummy = makeDummyCard();
-
-  const onClickHamburger = () => {
-    isClickedActions.toggle();
-  };
-
-  const dummyWeb = ["", "CSS", "JavaScript", "TypeScript", "React"];
-  const dummyCs = ["", "Compiler", "PL", "DataStructure", "Git"];
-  const dummySystem = ["", "windows", "Ubuntu", "RedHat", "Kali-Linux"];
-  const dummyAi = [
-    "",
-    "Reinforce",
-    "Supervised",
-    "Unsupervised",
-    "Visualization",
-  ];
-
-  const dummyCategory = [[], dummyWeb, dummyCs, dummySystem, dummyAi];
-
+const Home = ({ match }) => {
   return (
-    <HomeWrapper>
-      <SearchInput type="container-1" inputWidth="50%" />
-      <header>
-        <li className="header-head">
-          <ul>
-            <HamburgerMenuIcon onClick={onClickHamburger} />
-          </ul>
-          <ul>WEB</ul>
-          <ul>DATA STRUCTURE</ul>
-          <ul>OS</ul>
-          <ul>AI</ul>
-        </li>
-        {isClicked ? (
-          <div className="header-body">
-            {dummyCategory.map((category) => {
-              return (
-                <li key={category} className="column">
-                  {category.map((item) => (
-                    <ul key={item}>{item}</ul>
-                  ))}
-                </li>
-              );
-            })}
-          </div>
-        ) : null}
-      </header>
-      <section className="courses">
-        {dummy.map((item) => (
-          <Card key={item.title} {...item} />
-        ))}
-      </section>
-    </HomeWrapper>
+    <CategoryIndexWrapper>
+      <h1>Home</h1>
+      <div className="subjects">
+        {subjects.map((suject) => {
+          return (
+            <NoDecorationLink
+              key={suject}
+              to={`${match.url}/${suject.replace(' ', '').toLowerCase()}`}
+            >
+              <CategorySimpleCard background={palette.classicBlue}>
+                {suject}
+              </CategorySimpleCard>
+            </NoDecorationLink>
+          );
+        })}
+      </div>
+    </CategoryIndexWrapper>
   );
 };
 
-const HomeWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-
-  header {
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
-
-    .header-head {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 20px 0px;
-      margin-top: 40px;
-      background: ${palette.classicBlue};
-      color: white;
-    }
-
-    .header-body {
-      display: flex;
-      justify-content: space-around;
-
-      .column {
-        display: flex;
-        flex: 1 0 20%;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 0px;
-        background: ${palette.white};
-        color: black;
-        border-bottom: 1px solid gray;
-      }
-    }
-    ul {
-      display: flex;
-      justify-content: center;
-      flex: 0 1 20%;
-      margin: 5px 0px;
-    }
-  }
-
-  .courses {
-    width: 100%;
+const CategoryIndexWrapper = styled.div`
+  h1 {
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 0px;
     margin: 40px 0px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    border-bottom: 1px solid gray;
   }
+  .subjects {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, minmax(200px, auto));
+    gap: 80px;
+  }
+`;
+
+const CategorySimpleCard = styled(SimpleCard)`
+  color: white;
+  background: ${(props) => props.background || palette.pastelBlue};
+  border: 1px solid gray;
+  border-radius: 8px;
+  font-size: 32px;
+  &:hover {
+    background: ${palette.pastelBlue};
+  }
+  transition: background 0.3s linear;
 `;
 
 export default Home;

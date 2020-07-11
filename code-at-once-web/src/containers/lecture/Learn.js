@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Learn = ({ title, src }) => {
   return <LearnWrapper title={title} src={src} />;

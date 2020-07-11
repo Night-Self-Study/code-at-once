@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const useToggle = (initialValue = false) => {
-  if (typeof initialValue !== "boolean") {
-    throw Error("useToggle: The value is not Boolean type");
+  if (typeof initialValue !== 'boolean') {
+    throw Error('useToggle: The value is not Boolean type');
   }
 
   const [value, setValue] = useState(initialValue);

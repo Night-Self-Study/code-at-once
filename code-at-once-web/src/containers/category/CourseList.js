@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import Card from "components/Card";
-import Button from "components/Button";
+import Card from 'components/Card';
+import Button from 'components/Button';
 
 const CourseList = ({ category, data = [], goBack }) => {
   const content = data.map((item) => (

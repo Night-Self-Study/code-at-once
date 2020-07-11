@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import QandAForm, { QUESTION } from "containers/lecture/QandAForm";
+import React from 'react';
+import styled from 'styled-components';
+import QandAForm, { QUESTION } from 'containers/lecture/QandAForm';
 
 const MyQandA = () => {
   return (

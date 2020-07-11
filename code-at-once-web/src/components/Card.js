@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import noImage from "lib/assets/noimage.jpg";
-import NoDecorationLink from "components/NoDecorationLink";
+import noImage from 'lib/assets/noimage.jpg';
+import NoDecorationLink from 'components/NoDecorationLink';
 
-const errorPath = "/error";
+const errorPath = '/error';
 
 const Card = ({
   isLong = false,
@@ -12,10 +12,10 @@ const Card = ({
   path = errorPath,
   id,
   thumbnail = noImage,
-  level = "초급",
-  title = "title을 불러오지 못했습니다.",
-  author = "author를 불러오지 못했습니다.",
-  detail = "",
+  level = '초급',
+  title = 'title을 불러오지 못했습니다.',
+  author = 'author를 불러오지 못했습니다.',
+  detail = '',
 }) => {
   return isLong ? (
     <LongCardWrapper>

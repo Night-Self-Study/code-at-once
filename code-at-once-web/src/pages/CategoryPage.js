@@ -1,10 +1,10 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React from 'react';
+import { Route } from 'react-router-dom';
 
-import CategoryIndex from "containers/category/CategoryIndex";
-import CategoryDetail from "containers/category/CategoryDetail";
-import LevelTest from "containers/category/LevelTest";
-import LevelTestResult from "containers/category/LevelTestResult";
+import CategoryIndex from 'containers/category/CategoryIndex';
+import CategoryDetail from 'containers/category/CategoryDetail';
+import LevelTest from 'containers/category/LevelTest';
+import LevelTestResult from 'containers/category/LevelTestResult';
 
 const CategoryPage = ({ match }) => {
   return (

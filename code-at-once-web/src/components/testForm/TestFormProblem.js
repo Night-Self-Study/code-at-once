@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Input from "components/Input";
-import TestFormViewing from "./TestFormViewing";
+import React from 'react';
+import styled from 'styled-components';
+import Input from 'components/Input';
+import TestFormViewing from './TestFormViewing';
 
 const TestFormProblem = ({ item, onChange }) => {
   return (

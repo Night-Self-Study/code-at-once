@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import palette from "lib/styles/palette";
+import React from 'react';
+import styled from 'styled-components';
+import palette from 'lib/styles/palette';
 
 const SearchBar = ({ type, inputWidth }) => {
   return (
     <SearchBarWrapper inputWidth={inputWidth}>
       <div className={type}>
-        {type !== "container-4" ? (
+        {type !== 'container-4' ? (
           <>
             <span className="icon">
               <i className="fa fa-search"></i>
@@ -27,7 +27,7 @@ const SearchBar = ({ type, inputWidth }) => {
 };
 
 const SearchBarWrapper = styled.div`
-  width: ${(props) => props.inputWidth || "100%"};
+  width: ${(props) => props.inputWidth || '100%'};
   .container-1 {
     width: 100%;
     vertical-align: middle;

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import IndexList from "components/IndexList";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import IndexList from 'components/IndexList';
 
-import noImage from "lib/assets/noimage.jpg";
-import dummyCourse from "lib/dummyCourse";
-import dummyIndex from "lib/dummyIndex";
+import noImage from 'lib/assets/noimage.jpg';
+import dummyCourse from 'lib/dummyCourse';
+import dummyIndex from 'lib/dummyIndex';
 
 const CourseDetail = ({ match }) => {
   const { category, id } = match.params;

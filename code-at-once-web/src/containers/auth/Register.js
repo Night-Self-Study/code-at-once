@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import CustomForm from "components/CustomForm";
-import Button from "components/Button";
+import React from 'react';
+import styled from 'styled-components';
+import CustomForm from 'components/CustomForm';
+import Button from 'components/Button';
 
 const Register = () => {
   return (
     <RegisterWrapper>
       <div className="header">회원가입</div>
       <CustomForm
-        data={["ID", "Password", "Password 확인", "이름", "E-Mail"]}
+        data={['ID', 'Password', 'Password 확인', '이름', 'E-Mail']}
       />
       <Button>회원가입</Button>
     </RegisterWrapper>
