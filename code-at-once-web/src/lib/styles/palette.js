@@ -6,7 +6,6 @@ const palette = {
 	classicBlue: '#0F4C81',
 	darkBlue: '#2b303b',
 
-	/* white */
 	white: '#FFFFFF',
 	black: '#000000',
 	jade: '#00A86B',

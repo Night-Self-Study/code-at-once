@@ -8,9 +8,11 @@ import MyQandA from 'containers/mypage/MyQandA';
 const MyPage = () => {
 	const [isRendered, setRendered] = useState(false);
 	const [isQandA, setQandA] = useState(false);
+
 	useEffect(() => {
 		setRendered(true);
 	}, []);
+
 	const onClickTab = (tabName) => {
 		if (tabName === 'currentCourse') {
 			setQandA(false);
@@ -21,6 +23,7 @@ const MyPage = () => {
 			return;
 		}
 	};
+
 	return (
 		<MyPageWrapper isRendered={isRendered}>
 			<div className='mypage-header'>

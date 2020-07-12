@@ -26,4 +26,5 @@ const NotFoundContainer = styled.div`
 		line-height: 300%;
 	}
 `;
+
 export default NotFoundPage;
