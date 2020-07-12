@@ -1,7 +1,6 @@
 import React from 'react';
-import Home from 'containers/home/Home';
 
-import { Container, makeStyles, Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 
 import Introduce from 'components/home/Introduce';
 import SubjectCardList from 'components/home/SubjectCardList';
