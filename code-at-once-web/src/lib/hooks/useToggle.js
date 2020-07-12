@@ -10,7 +10,7 @@ const useToggle = (initialValue = false) => {
 	return [
 		value,
 		{
-			set: setValue,
+			setLoggedIn: setValue,
 			toggle: () => setValue((flag) => !flag),
 		},
 	];
