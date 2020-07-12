@@ -3,7 +3,7 @@ import React from 'react';
 import { Box, Typography } from '@material-ui/core';
 
 import Introduce from 'components/home/Introduce';
-import SubjectCardList from 'components/home/SubjectCardList';
+import SubjectCardList from 'components/SubjectCardList';
 
 const HomePage = () => {
 	return (

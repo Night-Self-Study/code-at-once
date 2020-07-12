@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
-import SubjectCard from 'components/home/SubjectCard';
+import SubjectCard from 'components/SubjectCard';
 
 import algorithmImg from 'lib/assets/algorithm.png';
 import dataStructureImg from 'lib/assets/data-structure.png';
@@ -29,7 +29,7 @@ export default function CardList() {
 		<Grid container spacing={2}>
 			{dummySubject.map((subject, key) => {
 				return (
-					<Grid item className={classes.item} xs={4} key={key}>
+					<Grid item className={classes.item} xs={3} key={key}>
 						<SubjectCard subject={subject} />
 					</Grid>
 				);
