@@ -6,11 +6,41 @@ import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter } from 'react-router-dom';
 
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { CssBaseline } from '@material-ui/core';
+
+const theme = createMuiTheme({
+	typography: {
+		fontFamily: 'paybooc-Bold',
+		fontWeightLight: 200,
+		fontWeightRegular: 400,
+		fontWeightMedium: 500,
+		fontWeightBold: 600,
+	},
+	palette: {
+		primary: {
+			light: '#779ECB',
+			main: '#7B90E3',
+			dark: '#0F4C81',
+			contrastText: '#fff',
+		},
+		secondary: {
+			light: '#827397',
+			main: '#4d4c7d',
+			dark: '#363062',
+			contrastText: '#fff',
+		},
+	},
+});
+
 ReactDOM.render(
 	<React.StrictMode>
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
+		<MuiThemeProvider theme={theme}>
+			<BrowserRouter>
+				<CssBaseline />
+				<App />
+			</BrowserRouter>
+		</MuiThemeProvider>
 	</React.StrictMode>,
 	document.getElementById('root'),
 );
