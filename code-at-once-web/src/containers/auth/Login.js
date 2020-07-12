@@ -1,33 +1,19 @@
 import React from 'react';
 import CustomForm from 'components/CustomForm';
-import styled from 'styled-components';
-import Button from 'components/Button';
+import { Button, Container, Box, Typography } from '@material-ui/core';
 
-const Login = () => {
+export default function Login() {
 	return (
-		<LoginWrapper>
-			<div className='header'>로그인</div>
-			<CustomForm data={['ID', 'Password']} />
-			<Button>로그인</Button>
-		</LoginWrapper>
+		<Box p={3}>
+			<Container maxWidth='md'>
+				<Typography variant='h4'>로그인</Typography>
+				<CustomForm data={['ID', 'Password']} />
+				<Box py={3}>
+					<Button fullWidth={true} variant='contained' color='primary'>
+						로그인
+					</Button>
+				</Box>
+			</Container>
+		</Box>
 	);
-};
-
-const LoginWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	width: 50%;
-	margin: 0 auto;
-
-	.header {
-		text-align: center;
-		margin: 20px 0px;
-		font-size: 28px;
-	}
-
-	Button {
-		text-algin: center;
-		margin: 20px 0px;
-	}
-`;
-export default Login;
+}

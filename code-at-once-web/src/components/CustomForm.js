@@ -1,35 +1,30 @@
 import React from 'react';
-import styled from 'styled-components';
-import Input from 'components/Input';
+import { Grid, FormControl, InputLabel, Input } from '@material-ui/core';
 
-const CustomForm = ({ data }) => {
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+		'& .MuiTextField-root': {
+			margin: theme.spacing(1),
+			width: '25ch',
+		},
+	},
+}));
+
+export default function CustomForm({ data }) {
+	const classes = useStyles();
+
 	return (
-		<CustomFormWrapper>
-			{data.map((item) => {
-				return (
-					<div key={item} className='row'>
-						<label>{item}</label>
-						<Input />
-					</div>
-				);
-			})}
-		</CustomFormWrapper>
+		<form className={classes.root} noValidate autoComplete='off'>
+			<Grid container>
+				{data.map((item, key) => (
+					<FormControl fullWidth key={key}>
+						<InputLabel htmlFor={item}>{item}</InputLabel>
+						<Input id={item} />
+					</FormControl>
+				))}
+			</Grid>
+		</form>
 	);
-};
-
-const CustomFormWrapper = styled.form`
-	.row {
-		padding: 10px 0px;
-		display: flex;
-		align-items: center;
-	}
-
-	label {
-		flex: 0.3;
-	}
-
-	Input {
-		flex: 0.7;
-	}
-`;
-export default CustomForm;
+}

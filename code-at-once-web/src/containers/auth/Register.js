@@ -1,35 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
 import CustomForm from 'components/CustomForm';
-import Button from 'components/Button';
+import { Button, Container, Box, Typography } from '@material-ui/core';
 
-const Register = () => {
+export default function Register() {
 	return (
-		<RegisterWrapper>
-			<div className='header'>회원가입</div>
-			<CustomForm
-				data={['ID', 'Password', 'Password 확인', '이름', 'E-Mail']}
-			/>
-			<Button>회원가입</Button>
-		</RegisterWrapper>
+		<Box p={3}>
+			<Container maxWidth='md'>
+				<Typography variant='h4'>회원가입</Typography>
+				<CustomForm
+					data={['ID', 'Password', 'Password 확인', '이름', 'E-Mail']}
+				/>
+				<Box py={3}>
+					<Button fullWidth={true} variant='contained' color='primary'>
+						회원가입
+					</Button>
+				</Box>
+			</Container>
+		</Box>
 	);
-};
-
-const RegisterWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	width: 50%;
-	margin: 0 auto;
-
-	.header {
-		text-align: center;
-		margin: 20px 0px;
-		font-size: 28px;
-	}
-
-	Button {
-		text-algin: center;
-		margin: 20px 0px;
-	}
-`;
-export default Register;
+}
