@@ -2,6 +2,15 @@
 
 - Remake webpage
 
+#### Folder Structure
+```
+└─src
+    ├─components: Component Design (Button, Card, ...)
+    ├─containers: Logic (fetch, ...)
+		├─lib: Library
+    └─pages: Layout (Page with Padding, Margin, ...)
+```
+
 #### Commit Style : refer to [Udacity Commit Guide](https://udacity.github.io/git-styleguide/) 
 
 - Form of commit : `label : (verb) (title)` 
