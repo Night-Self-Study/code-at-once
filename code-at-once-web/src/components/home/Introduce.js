@@ -34,8 +34,8 @@ export default function Introduce() {
 							align='right'
 							color='primary'
 						>
-							Code at Once는 컴퓨터 전공 지식을 스스로 학습할 때 틀리기 쉬운
-							부분을 hint를 통해 학습을 돕습니다.
+							Code at Once는 컴퓨터 전공 지식을 코딩테스트를 통해 학습할 때 틀린
+							부분에 대해 HINT를 제공하는 자율 학습 서비스입니다.
 						</Typography>
 					</Container>
 				</Grid>
