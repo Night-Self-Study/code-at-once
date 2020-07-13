@@ -4,6 +4,7 @@ import SubjectCard from 'components/SubjectCard';
 
 import algorithmImg from 'lib/assets/algorithm.png';
 import dataStructureImg from 'lib/assets/data-structure.png';
+import NoImg from 'lib/assets/noimage.jpg';
 
 const useStyles = makeStyles({});
 
@@ -20,17 +21,29 @@ const dummySubject = [
 		img: dataStructureImg,
 		description: '자료구조',
 	},
+	{
+		title: '프로그래밍1',
+		path: '/learn/prograaming1',
+		img: NoImg,
+		description: '프로그래밍1',
+	},
+	{
+		title: '프로그래밍2',
+		path: '/learn/prograaming2',
+		img: NoImg,
+		description: '프로그래밍2',
+	},
 ];
 // TODO: Move dummySubject to container/
 
-export default function CardList() {
+export default function HomeSubjectCardList() {
 	const classes = useStyles();
 
 	return (
 		<Grid container spacing={2}>
 			{dummySubject.map((subject, key) => {
 				return (
-					<Grid item className={classes.item} xs={3} key={key}>
+					<Grid item className={classes.item} xs={4} key={key}>
 						<SubjectCard subject={subject} />
 					</Grid>
 				);

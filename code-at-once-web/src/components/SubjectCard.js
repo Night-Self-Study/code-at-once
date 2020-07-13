@@ -7,11 +7,14 @@ import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
+		backgroundColor: theme.palette.primary.light,
+	},
+	actionArea: {
 		display: 'flex',
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: theme.palette.primary.light,
+		padding: '2rem',
 	},
 	details: {
 		padding: '16px 16px',
@@ -30,9 +33,9 @@ export default function SubjectCard({ subject }) {
 	const classes = useStyles();
 	const history = useHistory();
 	return (
-		<Card>
+		<Card className={classes.root}>
 			<CardActionArea
-				className={classes.root}
+				className={classes.actionArea}
 				onClick={() => {
 					console.log('test');
 					history.push(`${subject.path}`);
