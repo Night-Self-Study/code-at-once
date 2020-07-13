@@ -8,6 +8,7 @@ const useStyles = makeStyles({
 
 export default function LearnSubjectPage({ match }) {
 	const classes = useStyles();
+
 	return (
 		<Container maxWidth='md'>
 			<Box py={3}>

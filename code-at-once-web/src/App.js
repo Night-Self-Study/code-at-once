@@ -5,8 +5,8 @@ import Header from 'components/Header';
 
 import HomePage from 'pages/HomePage';
 import NotFoundPage from 'pages/NotFoundPage';
-import RegisterPage from 'pages/RegisterPage';
-import LoginPage from 'pages/LoginPage';
+import RegisterPage from 'pages/auth/RegisterPage';
+import LoginPage from 'pages/auth/LoginPage';
 // import MyPage from 'pages/MyPage';
 import LearnPage from 'pages/learn/LearnPage';
 
