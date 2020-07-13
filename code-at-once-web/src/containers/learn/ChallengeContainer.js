@@ -1,6 +1,7 @@
 import React from 'react';
 import ChallengeList from 'components/learn/ChallengeList';
 import LearnUtilSection from 'components/learn/ChallengeUtilSection';
+import { Box } from '@material-ui/core';
 
 const dummyChallenge = [
 	{
@@ -28,8 +29,12 @@ export default function SubjectContainer({ match }) {
 
 	return (
 		<>
-			<LearnUtilSection />
-			<ChallengeList challengeData={dummyChallenge} />
+			<Box py={2}>
+				<LearnUtilSection />
+			</Box>
+			<Box py={2}>
+				<ChallengeList challengeData={dummyChallenge} />
+			</Box>
 		</>
 	);
 }
