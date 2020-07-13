@@ -11,7 +11,7 @@ import { CssBaseline } from '@material-ui/core';
 
 const theme = createMuiTheme({
 	typography: {
-		fontFamily: 'paybooc-Bold',
+		fontFamily: 'GmarketSansMedium',
 		fontWeightLight: 200,
 		fontWeightRegular: 400,
 		fontWeightMedium: 500,
