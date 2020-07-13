@@ -11,15 +11,15 @@ const dummyChallenge = [
 	},
 	{
 		title: '큐를 이용한 문제',
-		category: '큐는 우리말로 선입후출',
-		level: '큐',
-		content: '중급',
+		category: '큐',
+		level: '중급',
+		content: '큐는 우리말로 선입후출',
 	},
 	{
 		title: '트리를 이용한 문제',
-		category: '트리는 우리말로 나무ㅋㅋ',
-		level: '트리',
-		content: '고급',
+		category: '트리',
+		level: '고급',
+		content: '트리는 우리말로 나무ㅋㅋ',
 	},
 ];
 
