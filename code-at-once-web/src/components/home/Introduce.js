@@ -19,6 +19,7 @@ const useStyles = makeStyles({
 	introduce: {
 		fontSize: '1.5em',
 		color: '#fff',
+		lineHeight: '1.5em',
 	},
 });
 
@@ -26,16 +27,17 @@ export default function Introduce() {
 	const classes = useStyles();
 	return (
 		<div className={classes.root}>
-			<Grid container justify='flex-end'>
-				<Grid item xs={9}>
+			<Grid container justify='center'>
+				<Grid item xs={6}>
 					<Container>
 						<Typography
 							className={classes.introduce}
-							align='right'
 							color='primary'
+							align='center'
 						>
-							Code at Once는 컴퓨터 전공 지식을 코딩테스트를 통해 학습할 때 틀린
-							부분에 대해 HINT를 제공하는 자율 학습 서비스입니다.
+							Code at Once는 컴퓨터 전공 지식을 코딩테스트를 통해 학습할 때,
+							<br />
+							틀린 부분에 대해 HINT를 제공하는 자율 학습 서비스입니다.
 						</Typography>
 					</Container>
 				</Grid>
