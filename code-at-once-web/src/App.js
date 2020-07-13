@@ -7,7 +7,9 @@ import HomePage from 'pages/HomePage';
 import NotFoundPage from 'pages/NotFoundPage';
 import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
-import MyPage from 'pages/MyPage';
+// import MyPage from 'pages/MyPage';
+import LearnPage from 'pages/learn/LearnPage';
+
 import Copyright from 'components/Copyright';
 
 const App = () => {
@@ -25,7 +27,8 @@ const App = () => {
 					<Route exact path='/' component={HomePage} />
 					<Route path='/register' component={RegisterPage} />
 					<Route path='/login' component={LoginPage} />
-					<Route path='/mypage' component={MyPage} />
+					{/* <Route path='/mypage' component={MyPage} /> */}
+					<Route path='/learn' component={LearnPage} />
 					<Route component={NotFoundPage} />
 				</Switch>
 			</main>
