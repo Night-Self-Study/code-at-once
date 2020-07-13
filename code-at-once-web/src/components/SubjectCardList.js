@@ -21,6 +21,7 @@ const dummySubject = [
 		description: '자료구조',
 	},
 ];
+// TODO: Move dummySubject to container/
 
 export default function CardList() {
 	const classes = useStyles();
