@@ -1,14 +1,11 @@
 import React from 'react';
-import { Grid, makeStyles } from '@material-ui/core';
-import SubjectCard from 'components/SubjectCard';
+import SubjectCardList from 'components/SubjectCardList';
 
 import algorithmImg from 'lib/assets/algorithm.png';
 import dataStructureImg from 'lib/assets/data-structure.png';
 import NoImg from 'lib/assets/noimage.jpg';
 
-const useStyles = makeStyles({});
-
-const dummySubject = [
+const dummySubjects = [
 	{
 		title: '알고리즘',
 		path: '/learn/algorithm',
@@ -35,18 +32,10 @@ const dummySubject = [
 	},
 ];
 
-export default function SubjectCardList({ subjects = [] }) {
-	const classes = useStyles();
-
+export default function SubjectContainer() {
 	return (
-		<Grid container spacing={2}>
-			{subjects.map((subject, key) => {
-				return (
-					<Grid item className={classes.item} xs={4} key={key}>
-						<SubjectCard subject={subject} />
-					</Grid>
-				);
-			})}
-		</Grid>
+		<>
+			<SubjectCardList subjects={dummySubjects} />
+		</>
 	);
 }
