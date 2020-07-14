@@ -13,6 +13,7 @@ export default function ChallengeList({ challengeData = [] }) {
 			{challengeData.map((data, key) => (
 				<Grid item xs={12} key={key}>
 					<SubjectDetailCard
+						id={data.id}
 						title={data.title}
 						content={data.content}
 						category={data.category}

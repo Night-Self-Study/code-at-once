@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Container, Box } from '@material-ui/core';
-import SubjectContainer from 'containers/learn/SubjectDatailContainer';
+import SubjectContainer from 'containers/subject/SubjectDatailContainer';
 
 const useStyles = makeStyles({
 	root: {},
