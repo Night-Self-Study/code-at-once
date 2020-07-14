@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 
 import LearnMainPage from 'pages/learn/LearnMainPage';
 import LearnSubjectPage from 'pages/learn/LearnSubjectPage';
+import ChallengePage from 'pages/learn/ChallengePage';
 
 export default function Learn({ match }) {
 	return (
@@ -12,6 +13,11 @@ export default function Learn({ match }) {
 				exact
 				path={`${match.path}/:subject`}
 				component={LearnSubjectPage}
+			/>
+			<Route
+				exact
+				path={`${match.path}/:subject/:id`}
+				component={ChallengePage}
 			/>
 		</>
 	);
