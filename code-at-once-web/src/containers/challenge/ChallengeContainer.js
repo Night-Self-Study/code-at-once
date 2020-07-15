@@ -1,8 +1,7 @@
 import React from 'react';
 import ChallengeTemplate from 'components/challenge/ChallengeTemplate';
 import ChallengePaper from 'components/challenge/ChallengePaper';
-import Editor from 'containers/lecture/Editor';
-import { Button } from '@material-ui/core';
+import Editor from 'components/challenge/Editor';
 
 const dummyChallenge = {
 	title: '스택를 이용한 문제',
@@ -45,7 +44,6 @@ const dummyChallenge = {
 };
 
 export default function ChallengeContainer({ match }) {
-	console.log(match);
 	return (
 		<ChallengeTemplate>
 			<ChallengePaper challenge={dummyChallenge} />
