@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import LearnMainPage from 'pages/learn/LearnMainPage';
 import LearnSubjectPage from 'pages/learn/LearnSubjectPage';
 import ChallengePage from 'pages/learn/ChallengePage';
+import ResultPage from 'pages/learn/ChallengeResultPage';
 
 export default function Learn({ match }) {
 	return (
@@ -18,6 +19,11 @@ export default function Learn({ match }) {
 				exact
 				path={`${match.path}/:subject/:id`}
 				component={ChallengePage}
+			/>
+			<Route
+				exact
+				path={`${match.path}/:subject/:id/result`}
+				component={ResultPage}
 			/>
 		</>
 	);
