@@ -14,26 +14,24 @@ export default function ChallengeTemplate({ editorController, paper, editor }) {
 	const history = useHistory();
 
 	return (
-		<>
-			<Grid className={classes.root} container spacing={1}>
-				<Grid item xs={6}>
-					{paper}
-				</Grid>
-				<Grid item xs={6}>
-					{editor}
-				</Grid>
-
-				<Button
-					fullWidth
-					color='primary'
-					variant='contained'
-					onClick={() => {
-						history.push(`${history.location.pathname}/result`);
-					}}
-				>
-					제출
-				</Button>
+		<Grid className={classes.root} container spacing={1}>
+			<Grid item xs={6}>
+				{paper}
 			</Grid>
-		</>
+			<Grid item xs={6}>
+				{editor}
+			</Grid>
+
+			<Button
+				fullWidth
+				color='primary'
+				variant='contained'
+				onClick={() => {
+					history.push(`${history.location.pathname}/result`);
+				}}
+			>
+				제출
+			</Button>
+		</Grid>
 	);
 }
