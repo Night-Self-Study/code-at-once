@@ -34,14 +34,14 @@ const theme = createMuiTheme({
 });
 
 ReactDOM.render(
-	<React.StrictMode>
-		<MuiThemeProvider theme={theme}>
-			<BrowserRouter>
-				<CssBaseline />
-				<App />
-			</BrowserRouter>
-		</MuiThemeProvider>
-	</React.StrictMode>,
+	// <React.StrictMode>
+	<MuiThemeProvider theme={theme}>
+		<BrowserRouter>
+			<CssBaseline />
+			<App />
+		</BrowserRouter>
+	</MuiThemeProvider>,
+	// </React.StrictMode>
 	document.getElementById('root'),
 );
 
