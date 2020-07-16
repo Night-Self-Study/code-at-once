@@ -8,7 +8,7 @@ const useStyles = makeStyles({
 		justifyContent: 'center',
 		alignItems: 'center',
 		border: '1px solid black',
-		height: '300px',
+		height: '250px',
 		backgroundImage: `url(${code})`,
 		backgroundRepeat: 'no-repeat',
 		backgroundPositionX: 40,
@@ -26,22 +26,20 @@ const useStyles = makeStyles({
 export default function Introduce() {
 	const classes = useStyles();
 	return (
-		<div className={classes.root}>
-			<Grid container justify='center'>
-				<Grid item xs={6}>
-					<Container>
-						<Typography
-							className={classes.introduce}
-							color='primary'
-							align='center'
-						>
-							Code at Once는 컴퓨터 전공 지식을 코딩테스트를 통해 학습할 때,
-							<br />
-							틀린 부분에 대해 HINT를 제공하는 자율 학습 서비스입니다.
-						</Typography>
-					</Container>
-				</Grid>
+		<Grid className={classes.root} container justify='flex-end'>
+			<Grid item xs={9}>
+				<Container>
+					<Typography
+						className={classes.introduce}
+						color='primary'
+						align='right'
+					>
+						Code at Once는 컴퓨터 전공 지식을 코딩테스트를 통해 학습할 때,
+						<br />
+						틀린 부분에 대해 HINT를 제공하는 자율 학습 서비스입니다.
+					</Typography>
+				</Container>
 			</Grid>
-		</div>
+		</Grid>
 	);
 }
