@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles, Paper, Typography, Box, Grid } from '@material-ui/core';
-import Content from './Content';
 import Headline from './Headline';
 import Example from './Example';
+import Contents from './Contents';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
 		background: '#f7f7f9',
 		border: '1px solid #e1e1e8',
 		padding: 4,
+		height: '100%',
 	},
 	underline: {
 		borderBottom: `1px solid ${theme.palette.primary.light}`,
@@ -20,34 +21,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ChallengePaper({ challenge }) {
 	const classes = useStyles();
+
 	return (
 		<Paper className={classes.root}>
 			<Box p={2}>
 				<Headline>{challenge.title}</Headline>
-				<Content>{challenge.challengeDescription}</Content>
+				<Contents head={'설명'} body={challenge.challengeDescription} />
 				<br />
-				<Box>
-					<Typography variant='h6'>입력</Typography>
-					<Typography>{challenge.inputDescription}</Typography>
-				</Box>
+				<Contents head={'입력'} body={challenge.inputDescription} />
 				<br />
-				<Box>
-					<Typography variant='h6'>출력</Typography>
-					<Typography>{challenge.outputDescription}</Typography>
-				</Box>
+				<Contents head={'출력'} body={challenge.outputDescription} />
 				<br />
 				<Grid container>
 					<Grid item xs={6}>
-						<Paper className={classes.example}>
-							<Typography variant='h6'>입력 예제</Typography>
-							<Example>{challenge.inputExample}</Example>
-						</Paper>
+						<Example head={'입력 예제'} body={challenge.inputExample} />
 					</Grid>
 					<Grid item xs={6}>
-						<Paper className={classes.example}>
-							<Typography variant='h6'>출력 예제</Typography>
-							<Example>{challenge.outputExample}</Example>
-						</Paper>
+						<Example head={'출력 예제'} body={challenge.outputExample} />
 					</Grid>
 				</Grid>
 			</Box>
