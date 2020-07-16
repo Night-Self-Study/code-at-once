@@ -32,7 +32,13 @@ export default function ChallengePaper({ challenge }) {
 				<br />
 				<Contents head={'출력'} body={challenge.outputDescription} />
 				<br />
-				<Grid container>
+				<Grid container spacing={2}>
+					<Grid item xs={6}>
+						<Example head={'입력 예제'} body={challenge.inputExample} />
+					</Grid>
+					<Grid item xs={6}>
+						<Example head={'출력 예제'} body={challenge.outputExample} />
+					</Grid>
 					<Grid item xs={6}>
 						<Example head={'입력 예제'} body={challenge.inputExample} />
 					</Grid>
