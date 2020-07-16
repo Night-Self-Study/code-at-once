@@ -8,7 +8,7 @@ const useStyles = makeStyles({
 		justifyContent: 'center',
 		alignItems: 'center',
 		border: '1px solid black',
-		height: '200px',
+		height: '300px',
 		backgroundImage: `url(${code})`,
 		backgroundRepeat: 'no-repeat',
 		backgroundPositionX: 40,
