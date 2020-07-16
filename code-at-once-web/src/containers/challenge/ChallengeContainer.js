@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ChallengeTemplate from 'components/challenge/ChallengeTemplate';
 import ChallengePaper from 'components/challenge/ChallengePaper';
 import Editor from 'components/challenge/Editor';
+import EditorController from 'components/challenge/EditorController';
 
 const dummyChallenge = {
 	title: '스택을 이용한 문제',
@@ -44,10 +45,19 @@ const dummyChallenge = {
 };
 
 export default function ChallengeContainer({ match }) {
+	const [language, setLanguage] = useState('python');
+
 	return (
-		<ChallengeTemplate>
-			<ChallengePaper challenge={dummyChallenge} />
-			<Editor />
-		</ChallengeTemplate>
+		<ChallengeTemplate
+			paper={
+				<ChallengePaper
+					challenge={dummyChallenge}
+					editorController={
+						<EditorController language={language} setLanguage={setLanguage} />
+					}
+				/>
+			}
+			editor={<Editor language={language} />}
+		/>
 	);
 }

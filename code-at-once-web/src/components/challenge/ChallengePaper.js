@@ -19,13 +19,13 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function ChallengePaper({ challenge }) {
+export default function ChallengePaper({ challenge, editorController }) {
 	const classes = useStyles();
 
 	return (
 		<Paper className={classes.root}>
 			<Box p={2}>
-				<Headline>{challenge.title}</Headline>
+				<Headline head={challenge.title}>{editorController}</Headline>
 				<Contents head={'설명'} body={challenge.challengeDescription} />
 				<br />
 				<Contents head={'입력'} body={challenge.inputDescription} />
