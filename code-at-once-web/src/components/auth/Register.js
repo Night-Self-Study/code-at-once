@@ -20,7 +20,7 @@ export default function Register() {
 
 	return (
 		<Box p={3}>
-			<Container maxWidth='md'>
+			<Container>
 				<Typography variant='h4'>회원가입</Typography>
 				<CustomForm
 					data={['ID', 'Password', 'Password 확인', '이름', 'E-Mail']}

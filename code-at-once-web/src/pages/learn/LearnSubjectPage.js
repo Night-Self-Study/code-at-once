@@ -10,7 +10,7 @@ export default function LearnSubjectPage({ match }) {
 	const classes = useStyles();
 
 	return (
-		<Container maxWidth='md'>
+		<Container>
 			<Box py={3}>
 				<SubjectContainer match={match} />
 			</Box>

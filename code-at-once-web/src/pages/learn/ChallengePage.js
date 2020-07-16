@@ -15,7 +15,7 @@ export default function ChallengePage({ match }) {
 	const classes = useStyles();
 
 	return (
-		<Container className={classes.root} maxWidth='lg'>
+		<Container className={classes.root}>
 			<Box className={classes.long} py={3}>
 				<ChallengeContainer match={match} />
 			</Box>

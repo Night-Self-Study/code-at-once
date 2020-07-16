@@ -10,7 +10,7 @@ export default function ResultPage() {
 	const classes = useStyles();
 
 	return (
-		<Container className={classes.root} maxWidth='lg'>
+		<Container className={classes.root}>
 			<Box className={classes.long} py={3}>
 				<ChallengeResultContainer />
 			</Box>
