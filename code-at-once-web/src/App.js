@@ -22,7 +22,7 @@ const App = () => {
 			}}
 		>
 			<Header auth={false} />
-			<main style={{ flexGrow: 1 }}>
+			<main>
 				<Switch>
 					<Route exact path='/' component={HomePage} />
 					<Route path='/register' component={RegisterPage} />

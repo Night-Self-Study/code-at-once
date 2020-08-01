@@ -25,6 +25,7 @@
 /* React root component make full screen*/
 html,
 body,
-#root {
+#root,
+main {
 	height: 100vh;
 }
