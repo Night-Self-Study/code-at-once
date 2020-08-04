@@ -1,18 +1,12 @@
 import express from 'express';
-import bodyParser from 'body-parser';
-import { graphqlExpress } from 'apollo-server-express';
-import { makeExecutableSchema } from 'graphql-tools';
+import { ApolloServer } from 'apollo-server-express';
 
 import typeDefs from './schema';
-import resolvers from './ resolvers';
-
-export const schema = makeExecutableSchema({
-    typeDefs,
-    resolvers,
-})
+import resolvers from './resolvers';
 
 const app = express();
+export const server = new ApolloServer({ typeDefs, resolvers });
+server.applyMiddleware({ app });
 
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema: myGraphQLSchema }));
 
 app.listen(8080);
