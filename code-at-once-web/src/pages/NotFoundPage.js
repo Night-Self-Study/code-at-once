@@ -1,30 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { makeStyles, Box } from '@material-ui/core';
+
+const useStyles = makeStyles({
+	root: {
+		display: 'flex',
+		padding: '20px',
+		justifyContent: 'center',
+		textAlign: 'center',
+		flexDirection: 'column',
+	},
+	section1: {
+		lineHeight: '300%',
+	},
+});
 
 const NotFoundPage = () => {
+	const classes = useStyles();
 	return (
-		<NotFoundContainer>
-			<section className='section1'>
+		<Box className={classes.root}>
+			<section className={classes.section1}>
 				<p>페이지를 찾을 수 없습니다.</p>
 				<p>다시 시도해주세요.</p>
 			</section>
 			<Link to='/'>
 				<h2> 홈으로 돌아가기</h2>
 			</Link>
-		</NotFoundContainer>
+		</Box>
 	);
 };
-
-const NotFoundContainer = styled.div`
-	display: flex;
-	padding: 20px;
-	justify-content: center;
-	text-align: center;
-	flex-direction: column;
-	.section1 {
-		line-height: 300%;
-	}
-`;
 
 export default NotFoundPage;

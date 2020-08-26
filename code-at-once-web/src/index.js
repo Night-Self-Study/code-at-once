@@ -16,7 +16,12 @@ const theme = createMuiTheme({
 		fontWeightRegular: 400,
 		fontWeightMedium: 500,
 		fontWeightBold: 600,
+		button: {
+			// Material UI Button always has upper case. `textTransform: 'none'` can prevent it.
+			textTransform: 'none',
+		},
 	},
+	
 	palette: {
 		primary: {
 			light: '#779ECB',
