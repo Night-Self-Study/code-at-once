@@ -25,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
+const now = moment().format('HH:mm:ss');
+
 export default function ChallengeResult() {
 	const classes = useStyles();
 	const [isLoading, setIsLoading] = useState(true);
@@ -56,7 +58,7 @@ export default function ChallengeResult() {
 					</Grid>
 					<Grid className={classes.infoItem} item xs={3}>
 						<Typography align='center'>
-							제출: <strong>{moment().format('HH:mm:ss')}</strong>
+							제출: <strong>{now}</strong>
 						</Typography>
 					</Grid>
 					<Grid className={classes.infoItem} item xs={3}>
