@@ -6,7 +6,6 @@ import EditorController from 'components/challenge/EditorController';
 
 const dummyChallenge = {
 	title: '스택을 이용한 문제',
-
 	challengeDescription: [
 		'정수를 저장하는 스택을 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.',
 		'명령은 총 다섯 가지이다.',
@@ -40,7 +39,6 @@ const dummyChallenge = {
 		'empty',
 		'top',
 	],
-
 	outputExample: ['2', '2', '0', '2', '1', '-1', '0', '1', '-1', '0', '3'],
 };
 
