@@ -5,5 +5,5 @@
 ### Member
 
 - 고태완 - Develop web
-- 김지혜 - Anaylze source code using Dom-Judge
+- 김지혜 - Anaylze source code using DomJudge
 - 최수연 - Develop server
