@@ -19,16 +19,16 @@ const dummySubjects = [
 		description: '자료구조',
 	},
 	{
-		title: '프로그래밍1',
+		title: '네트워크',
 		path: '/learn/prograaming1',
 		img: NoImg,
-		description: '프로그래밍1',
+		description: '네트워크',
 	},
 	{
-		title: '프로그래밍2',
+		title: '운영체제',
 		path: '/learn/prograaming2',
 		img: NoImg,
-		description: '프로그래밍2',
+		description: '운영체제',
 	},
 ];
 
