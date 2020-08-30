@@ -42,6 +42,13 @@ const dummyChallenge = {
 	outputExample: ['2', '2', '0', '2', '1', '-1', '0', '1', '-1', '0', '3'],
 };
 
+const dummyChallengeToDemo = {
+	title: '책 정리하기',
+	challengeDescription: [
+		`책 이름과 책에 대한 번호가 input으로 주어질 때, 번호가 가장 작은 책에 대해서, 해당 책 이름과 책의 번호를 출력하시오.`,
+	],
+};
+
 export default function ChallengeContainer({ match }) {
 	const [language, setLanguage] = useState('python');
 
@@ -49,7 +56,7 @@ export default function ChallengeContainer({ match }) {
 		<ChallengeTemplate
 			paper={
 				<ChallengePaper
-					challenge={dummyChallenge}
+					challenge={dummyChallengeToDemo}
 					editorController={
 						<EditorController language={language} setLanguage={setLanguage} />
 					}

@@ -53,7 +53,7 @@ export default function ChallengeResult() {
 				<Grid container className={classes.infoArea}>
 					<Grid className={classes.infoItem} item xs={3}>
 						<Typography align='center'>
-							문제: <strong>스택을 이용한 문제</strong>
+							문제: <strong>책 정리하기</strong>
 						</Typography>
 					</Grid>
 					<Grid className={classes.infoItem} item xs={3}>
@@ -63,12 +63,12 @@ export default function ChallengeResult() {
 					</Grid>
 					<Grid className={classes.infoItem} item xs={3}>
 						<Typography align='center'>
-							언어: <strong>Python</strong>
+							언어: <strong>Java</strong>
 						</Typography>
 					</Grid>
 					<Grid className={classes.infoItem} item xs={3}>
 						<Typography align='center'>
-							컴파일: <strong>성공</strong>
+							컴파일: <strong style={{ color: 'green' }}>성공</strong>
 						</Typography>
 					</Grid>
 				</Grid>
@@ -81,7 +81,7 @@ export default function ChallengeResult() {
 			<Grid item xs={12}>
 				<Box className={classes.resultArea}>
 					<Typography>
-						<u>[오답]</u>
+						<u style={{ color: 'red' }}>오답</u>입니다.
 					</Typography>
 					<Typography>{`해결 방법 추천: Map을 사용해보세요.`}</Typography>
 				</Box>
