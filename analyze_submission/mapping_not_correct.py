@@ -7,7 +7,8 @@ from mapping_wrong_answer import check_output, check_source_code_using_json
 db = pymysql.connect(host='localhost', port=13306, user='root', password='rootpw', db='domjudge', charset='utf8')
 cursor = db.cursor()
 
-submit_id = sys.argv[1]
+# submit_id = sys.argv[1]
+submit_id = '18'
 sql = '''
 
 select l.name, j.result, s.probid from `submission` as s join `language` as l join `judging`
@@ -15,8 +16,9 @@ as j on s.submitid=j.submitid and s.langid = l.langid where s.submitid=%s
 
 '''
 cursor.execute(sql, submit_id)
-submission_data = cursor.fetchall()
+submission_data = cursor.fetchall()[0]
 
+print(submission_data)
 lang = submission_data[0]
 error_type = submission_data[1]
 prob_id = submission_data[2]
@@ -58,9 +60,9 @@ elif error_type == 'compiler-error':
 
 elif error_type == 'wrong-answer':
     sql = '''
-        select j.submitid, t.testcaseid, jr.runresult, jr.output_run, t.output
+        select j.submitid, t.testcaseid, jr.runresult, jro.output_run, t.output
         from `judging` as j join `judging_run` as jr on j.judgingid = jr.judgingid
-        join `testcase` as t on jr.testcaseid=t.testcaseid
+        join `testcase_content` as t on jr.testcaseid=t.testcaseid join `judging_run_output` as jro on jro.runid=jr.runid
         where j.submitid=%s and jr.runresult!="timelimit"
     '''
     cursor.execute(sql, submit_id)
