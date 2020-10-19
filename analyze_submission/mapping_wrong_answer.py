@@ -62,7 +62,7 @@ def check_source_code_using_json(source_code, lang, probid) :
         with open("java_json.json") as json_file:
             total_json_data = json.load(json_file)
 
-        if total_json_data.strip() == "" or probid not in total_json_data :
+        if total_json_data  == None or probid not in total_json_data :
             return "아직 푼 사람이 없습니다."
 
         total_json_data = total_json_data[probid]
@@ -73,7 +73,7 @@ def check_source_code_using_json(source_code, lang, probid) :
         with open("python_json.json") as json_file:
             total_json_data = json.load(json_file)
 
-        if total_json_data.strip() == "" or probid not in total_json_data :
+        if total_json_data == None or probid not in total_json_data :
             return "아직 푼 사람이 없습니다."
 
         total_json_data = total_json_data[probid]

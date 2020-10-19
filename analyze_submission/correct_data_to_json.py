@@ -58,6 +58,7 @@ def get_data_in_java(cursor, problem_num):
         correct_source_code = cursor.fetchall()[0][0].decode()
 
         correct_source_code = correct_source_code.split("\n")
+    
         f = open("testJava.java", "w")
 
         for code in correct_source_code:
@@ -66,7 +67,7 @@ def get_data_in_java(cursor, problem_num):
 
         proc = subprocess.check_output(
             ["java", "-jar", "JavaCounter.jar",
-             "/home/oem/Desktop/testJava.java"])
+             "testJava.java"])
 
         json_data = proc.decode().strip()
         dict_data = json.loads(json_data)
@@ -119,8 +120,7 @@ python_json = ""
 sql = '''select count(probid) from problem;'''
 cursor.execute(sql)
 submission_data = cursor.fetchone()[0]
-
-for i in range(1, submission_data):
+for i in range(1, submission_data+1):
     # get all the correct submissions of one problem
 
     count_java_dict, java_dict = get_data_in_java(cursor, str(i))

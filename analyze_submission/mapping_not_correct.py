@@ -18,7 +18,6 @@ as j on s.submitid=j.submitid and s.langid = l.langid where s.submitid=%s
 cursor.execute(sql, submit_id)
 submission_data = cursor.fetchall()[0]
 
-print(submission_data)
 lang = submission_data[0]
 error_type = submission_data[1]
 prob_id = submission_data[2]
@@ -77,7 +76,7 @@ elif error_type == 'wrong-answer':
         cursor.execute(sql, submit_id)
         wrong_source_code = cursor.fetchall()
 
-        solve = check_source_code_using_json(wrong_source_code[0][0].decode(), lang, prob_id)
+        solve = check_source_code_using_json(wrong_source_code[0][0].decode(), lang, str(prob_id))
         print(solve)
 
 else:
