@@ -21,6 +21,22 @@ export default {
                 console.log(e);
                 return false;
             }
+        },
+        createExtensionFile: async (parent, { key, input }, { client }) => {
+            try {
+                //temp -> 문제 번호 사용자 id 조합으로 바꿔주기
+                await client.hmset(key, input);
+                const fs = require('fs');
+                if(input.language === 'python'){
+                    fs.writeFileSync('temp'+'.py', input.code);
+                } else if(input.language === 'java'){
+                    fs.writeFileSync('temp'+'.java', input.code);
+                }
+                return input;
+            } catch (e) {
+                console.log(e);
+                return false;
+            }
         }
     }
 }
