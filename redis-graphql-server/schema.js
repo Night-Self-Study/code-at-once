@@ -17,12 +17,24 @@ export default gql`
         email: String!
     }
 
+    type UserCode{
+        _id: ID!
+        language: String!
+        code: String! 
+    }
+
+    input CodeInput{
+        language: String!
+        code: String!
+    }
+
     type Query {
         get(key: String! ): String
     }
 
     type Mutation {
-        createUser(key: String!, input: UserInput!): User
+        createUser(key: String!, input: UserInput!): User,
+        createExtensionFile(key: String!, input: CodeInput!):UserCode
     }
 
 `;
