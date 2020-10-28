@@ -16,7 +16,7 @@ export default {
         createUser: async (parent, { key, input }, { client }) => {
             try {
                 await client.hmset(key+":"+input.id, input);
-                return input;
+                return client.hgetallAsync(key+":"+input.id);
             } catch (e) {
                 console.log(e);
                 return false;
@@ -32,7 +32,7 @@ export default {
                 } else if(input.language === 'java'){
                     fs.writeFileSync('temp'+'.java', input.code);
                 }
-                return input;
+                return client.hgetallAsync(key);
             } catch (e) {
                 console.log(e);
                 return false;
