@@ -1,5 +1,5 @@
 import sys
-
+import subprocess
 import pymysql
 from mapping_error_using_regex import error_to_solve
 from mapping_wrong_answer import check_output, check_source_code_using_json
@@ -22,6 +22,8 @@ lang = submission_data[0]
 error_type = submission_data[1]
 prob_id = submission_data[2]
 
+print(error_type)
+
 if error_type == 'run-error':
     sql = '''
             select j.submitid, jro.output_error from judging as j join judging_run as jr
@@ -29,9 +31,9 @@ if error_type == 'run-error':
             on j.judgingid = jr.judgingid and jr.runid=jro.runid where j.submitid=%s and jr.runresult="run-error";
             '''
     cursor.execute(sql, submit_id)
-    run_data = cursor.fetchall()
+    run_data = cursor.fetchall()[0][1].decode().strip()
 
-    detailed_error = run_data[0][1].decode().strip().split("\n")
+    detailed_error = run_data.split("\n")
     run_error_msg = ""
 
     if lang == "Java":
@@ -40,15 +42,16 @@ if error_type == 'run-error':
         run_error_msg = detailed_error[-1]
 
     solve = error_to_solve(run_error_msg)
+    print(run_data)
     print(solve)
 
 elif error_type == 'compiler-error':
     sql = '''select submitid, output_compile from judging where submitid=%s;'''
 
     cursor.execute(sql, submit_id)
-    compile_data = cursor.fetchall()
+    compile_data = cursor.fetchall()[0][1].decode().strip()
 
-    detailed_error = compile_data[0][1].decode().strip().split("\n")
+    detailed_error = compile_data.split("\n")
 
     compile_error_msg = ""
     if lang == "Java":
@@ -56,6 +59,7 @@ elif error_type == 'compiler-error':
     else:
         compile_error_msg = detailed_error[-1]
     solve = error_to_solve(compile_error_msg)
+    print(compile_data)
     print(solve)
 
 elif error_type == 'wrong-answer':
@@ -80,8 +84,9 @@ elif error_type == 'wrong-answer':
         solve = check_source_code_using_json(wrong_source_code[0][0].decode(), lang, str(prob_id))
         print(solve)
 
-else:
-    print(error_type)
+elif error_type == 'correct' :
+    subprocess.call(["python3", "correct_data_to_json.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    
 
 db.close()
 
