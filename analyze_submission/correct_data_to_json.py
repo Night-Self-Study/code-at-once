@@ -32,7 +32,7 @@ def count_total_data(dict_data, total_dict_data, count_dict_data):
             count_dict_data[key] = count_dict_data[key] + 1
 
 
-def get_data_in_java(cursor, problem_num):
+def get_data_in_java(cursor, problem_num, static_path):
     sql = '''
 
         select s.submitid, j.result from `submission` as s join `language` as l join `judging`
@@ -48,6 +48,7 @@ def get_data_in_java(cursor, problem_num):
 
     total_dict_data = {}
     count_dict_data = {}
+
     for submit in submission_data:
         submit_id = submit[0]
 
@@ -59,15 +60,15 @@ def get_data_in_java(cursor, problem_num):
 
         correct_source_code = correct_source_code.split("\n")
     
-        f = open("testJava.java", "w")
+        f = open(static_path+"testJava.java", "w")
 
         for code in correct_source_code:
             f.write(code + "\n")
         f.close()
 
         proc = subprocess.check_output(
-            ["java", "-jar", "JavaCounter.jar",
-             "testJava.java"])
+            ["java", "-jar", static_path+"JavaCounter.jar",
+             static_path+"testJava.java"])
 
         json_data = proc.decode().strip()
         dict_data = json.loads(json_data)
@@ -120,10 +121,11 @@ python_json = ""
 sql = '''select count(probid) from problem;'''
 cursor.execute(sql)
 submission_data = cursor.fetchone()[0]
+static_path = "/home/ubuntu/code-at-once/analyze_submission/"
 for i in range(1, submission_data+1):
     # get all the correct submissions of one problem
 
-    count_java_dict, java_dict = get_data_in_java(cursor, str(i))
+    count_java_dict, java_dict = get_data_in_java(cursor, str(i), static_path)
     count_data_json = json.dumps(count_java_dict)
     sum_data_json = json.dumps(java_dict)
 
@@ -141,7 +143,7 @@ for i in range(1, submission_data+1):
 
 if java_json != "" :
     java_json = "{ " + java_json[:-3] + " }"
-    f = open("java_json.json", "w")
+    f = open(static_path+"java_json.json", "w")
     java_json_array = java_json.split("\n")
 
     for data in java_json_array:
@@ -150,7 +152,7 @@ if java_json != "" :
 
 if python_json != "" :
     python_json = "{ "+python_json[:-3] + " }"
-    f = open("python_json.json", "w")
+    f = open(static_path+"python_json.json", "w")
     python_json_array = python_json.split("\n")
 
     for data in python_json_array:
