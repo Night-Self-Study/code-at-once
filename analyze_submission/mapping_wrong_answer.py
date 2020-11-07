@@ -47,19 +47,20 @@ def check_output_using_regex(data):
 
 def check_source_code_using_json(source_code, lang, probid) :
 
+    static_path = "/home/ubuntu/code-at-once/analyze_submission/"
     if lang == 'Java' :
         wrong_source_code = source_code.split("\n")
-        f = open("testJava.java", "w")
+        f = open(static_path+"testJava.java", "w")
 
         for code in wrong_source_code :
             f.write(code+"\n")
         f.close()
 
-        proc = subprocess.check_output(["java", "-jar", "JavaCounter.jar", "testJava.java"])
+        proc = subprocess.check_output(["java", "-jar", static_path+"JavaCounter.jar", static_path+"testJava.java"])
         cur_data = proc.decode().strip()
         cur_data = json.loads(cur_data)
 
-        with open("java_json.json") as json_file:
+        with open(static_path+"java_json.json") as json_file:
             total_json_data = json.load(json_file)
 
         if total_json_data  == None or probid not in total_json_data :
@@ -70,7 +71,7 @@ def check_source_code_using_json(source_code, lang, probid) :
 
     elif lang == 'Python 3' :
         cur_data = dict_total_data(source_code)
-        with open("python_json.json") as json_file:
+        with open(static_path+"python_json.json") as json_file:
             total_json_data = json.load(json_file)
 
         if total_json_data == None or probid not in total_json_data :
