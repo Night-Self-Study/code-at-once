@@ -10,7 +10,6 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
-	root: {},
 	menuButton: {
 		marginRight: theme.spacing(2),
 	},
@@ -29,25 +28,23 @@ export default function Header() {
 
 	return (
 		<AppBar position='static'>
-			<Box p={2}>
-				<Toolbar className={classes.toolbar} p={2}>
-					<Button
-						color='inherit'
-						onClick={() => {
-							history.push('/');
-						}}
-					>
-						<Typography variant='h6' className={classes.title}>
-							Code at Once
-						</Typography>
-					</Button>
-					<RightPanel
-						isLoggedIn={isLoggedIn}
-						setLoggedIn={setLoggedIn}
-						history={history}
-					/>
-				</Toolbar>
-			</Box>
+			<Toolbar className={classes.toolbar} p={2}>
+				<Button
+					color='inherit'
+					onClick={() => {
+						history.push('/');
+					}}
+				>
+					<Typography variant='h6' className={classes.title}>
+						Code at Once
+					</Typography>
+				</Button>
+				<RightPanel
+					isLoggedIn={isLoggedIn}
+					setLoggedIn={setLoggedIn}
+					history={history}
+				/>
+			</Toolbar>
 		</AppBar>
 	);
 }
