@@ -1,13 +1,12 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { makeStyles, Avatar, CardActionArea } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 
-import { useHistory } from 'react-router-dom';
-
 const useStyles = makeStyles((theme) => ({
 	root: {
-		backgroundColor: theme.palette.primary.light,
+		backgroundColor: theme.palette.primary.dark,
 	},
 	actionArea: {
 		display: 'flex',
@@ -32,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SubjectCard({ subject }) {
 	const classes = useStyles();
 	const history = useHistory();
+
 	return (
 		<Card className={classes.root}>
 			<CardActionArea

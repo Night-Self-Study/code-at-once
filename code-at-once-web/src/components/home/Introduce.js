@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles, Typography, Container, Grid } from '@material-ui/core';
-import code from 'lib/assets/code.png';
 
 const useStyles = makeStyles({
 	root: {
@@ -9,7 +8,7 @@ const useStyles = makeStyles({
 		alignItems: 'center',
 		border: '1px solid black',
 		height: '250px',
-		backgroundImage: `url(${code})`,
+		backgroundImage: `url('/images/code.png')`,
 		backgroundRepeat: 'no-repeat',
 		backgroundPositionX: 40,
 		backgroundColor: 'rgba(0, 0, 0, .8)',

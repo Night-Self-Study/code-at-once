@@ -7,15 +7,19 @@ const useStyles = makeStyles({
 	root: {
 		position: 'absolute',
 		top: '50%',
-		left: '50%',
-		marginTop: ~~(progressSize / 2) * -1,
-		marginLeft: ~~(progressSize / 2) * -1,
+		right: '50%',
+		transform: `translate(50%, 50%)`,
 	},
 });
 
 export default function Loading() {
 	const classes = useStyles();
 	return (
-		<CircularProgress size={`${progressSize}px`} className={classes.root} />
+		<div className={classes.root}>
+			<CircularProgress
+				size={`${progressSize}px`}
+				className={classes.progress}
+			/>
+		</div>
 	);
 }
