@@ -1,18 +1,22 @@
 import React from 'react';
 import { makeStyles, Grid } from '@material-ui/core';
 
-import SubjectDetailCard from '#/components/ChallengeCard';
+import ProblemCard from '#/components/problem/ProblemCard';
 
-const useStyles = makeStyles({});
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: theme.spacing(2, 0),
+  },
+}));
 
-export default function ChallengeList({ challengeData = [] }) {
+export default function ProblemList({ challengeData = [] }) {
   const classes = useStyles();
 
   return (
     <Grid container spacing={2}>
       {challengeData.map((data, key) => (
         <Grid item xs={12} key={key}>
-          <SubjectDetailCard
+          <ProblemCard
             id={data.id}
             title={data.title}
             content={data.content}

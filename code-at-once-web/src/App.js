@@ -4,12 +4,11 @@ import { makeStyles } from '@material-ui/core';
 import moment from 'moment';
 
 import Header from '#/components/common/Header';
-import HomePage from '#/pages/HomePage';
-import RegisterPage from '#/pages/auth/RegisterPage';
-import LoginPage from '#/pages/auth/LoginPage';
-import LearnMainPage from '#/pages/learn/LearnMainPage';
-import NotFoundPage from '#/pages/NotFoundPage';
 import Copyright from '#/components/common/Copyright';
+import HomePage from '#/pages/HomePage';
+import AuthRouter from '#/pages/auth/Router';
+import NotFoundPage from '#/pages/NotFoundPage';
+import ProblemRouter from '#/pages/problem/Router';
 
 moment.locale('ko');
 
@@ -33,9 +32,8 @@ export default function App() {
       <main className={classes.main}>
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route path='/register' component={RegisterPage} />
-          <Route path='/login' component={LoginPage} />
-          <Route path='/learn' component={LearnMainPage} />
+          <Route path='/auth' component={AuthRouter} />
+          <Route path='/problem' component={ProblemRouter} />
           <Route component={NotFoundPage} />
         </Switch>
       </main>

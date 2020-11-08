@@ -6,15 +6,17 @@ import {
   Toolbar,
   Typography,
   Button,
+  Container,
 } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  toolbar: {
-    padding: theme.spacing(2, 4),
+  container: {
+    display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   title: {
     fontSize: '1.5rem',
@@ -36,7 +38,7 @@ export default function Header() {
 
   return (
     <AppBar position='static' color='primary'>
-      <Toolbar className={classes.toolbar}>
+      <Container className={classes.container} maxWidth='lg'>
         <Button color='inherit' onClick={onClickLogo}>
           <img
             className={classes.logo}
@@ -53,7 +55,7 @@ export default function Header() {
           setLoggedIn={setLoggedIn}
           history={history}
         />
-      </Toolbar>
+      </Container>
     </AppBar>
   );
 }
@@ -93,7 +95,7 @@ const RightPanel = ({ isLoggedIn, setLoggedIn, history }) => (
         <Button
           color='inherit'
           onClick={() => {
-            history.push('/register');
+            history.push('/auth/register');
           }}
         >
           <Typography>Register</Typography>

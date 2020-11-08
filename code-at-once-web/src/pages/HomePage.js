@@ -1,18 +1,21 @@
 import React from 'react';
-
 import { Box } from '@material-ui/core';
 
 import Introduce from '#/components/home/Introduce';
-import SubjectContainer from '#/containers/subject/SubjectContainer';
+import MyContainer from '#/components/common/MyContainer';
+import ProblemSection from '#/components/problem/ProblemSection';
+import { dummyProblems } from '#/lib/dummyDB';
 
 const HomePage = () => {
+  // TODO: use reducer
   return (
-    <div>
+    <>
       <Introduce />
-      <Box p={5}>
-        <SubjectContainer />
-      </Box>
-    </div>
+      <MyContainer>
+        <ProblemSection data={dummyProblems} />
+        {/* <SubjectCardList subjects={dummySubjects} /> */}
+      </MyContainer>
+    </>
   );
 };
 

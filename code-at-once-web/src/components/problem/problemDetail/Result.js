@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { makeStyles, Grid, Typography, Box } from '@material-ui/core';
-import Loading from '#/components/Loading';
+import Loading from '#/components/common/Loading';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 const now = moment().format('HH:mm:ss');
 
-export default function ChallengeResult() {
+export default function Result() {
   const classes = useStyles();
   const [isLoading, setIsLoading] = useState(true);
 
