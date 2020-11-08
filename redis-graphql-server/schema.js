@@ -33,6 +33,15 @@ export default gql`
         email: String!
     }
 
+    input ProblemInput{
+        title: String!
+        problemDescription: [String!]
+        inputDescription: [String!]
+        outputDescription: [String!]
+        inputExample:[String!]
+        outputExample: [String!] 
+    }
+
     input CodeInput{
         language: String!
         code: String!
