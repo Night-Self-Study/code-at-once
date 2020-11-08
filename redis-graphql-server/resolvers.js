@@ -54,5 +54,35 @@ export default {
                 return false;
             }
         },
+        createExtensionFile: async (parent, { key, input }, { client }) => {
+            try {
+                //temp -> 문제 번호 사용자 id 조합으로 바꿔주기
+                await client.hmset(key, input);
+                const fs = require('fs');
+                if(input.language === 'python'){
+                    fs.writeFileSync('temp'+'.py', input.code);
+                } else if(input.language === 'java'){
+                    fs.writeFileSync('temp'+'.java', input.code);
+                }
+                const util = require('util');
+                const exec = util.promisify(require('child_process').exec);
+                let command = '/home/ubuntu/code-at-once/domjudge-7.2.0/submit -y -p firstbook -l Java hello.java';
+                let { stdout, stderr } = await exec(command);
+                const [, submit_id] = stderr.split('id = s');
+                console.log(submit_id);
+                
+                 
+                command = 'python3 /home/ubuntu/code-at-once/analyze_submission/mapping_not_correct.py '+submit_id.trim();
+                const { stdout: cmdout, stderr: cmderr } = await exec(command);
+                console.log('stdout:', cmdout);
+                console.error('stderr:', cmderr);
+                
+
+                return client.hgetallAsync(key);
+            } catch (e) {
+                console.log(e);
+                return false;
+            }
+        }
     }
 }

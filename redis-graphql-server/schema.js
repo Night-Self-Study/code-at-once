@@ -48,12 +48,14 @@ export default gql`
     }
 
     type Query {
-        get(key: String!): String
+        get(key: String!): String,
+        getProblem(id: String!): Problem
     }
 
     type Mutation {
         createUser(key: String!, input: UserInput!): User,
         createProblem(key: String!, input: ProblemInput!): Boolean,
+        createExtensionFile(key: String!, input: CodeInput!):UserCode,
     }
 
 `;
