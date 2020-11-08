@@ -1,19 +1,19 @@
 import React from 'react';
 import { makeStyles, Container, Box } from '@material-ui/core';
-import SubjectContainer from 'containers/subject/SubjectDatailContainer';
+import SubjectContainer from '#/containers/subject/SubjectDatailContainer';
 
 const useStyles = makeStyles({
-	root: {},
+  root: {},
 });
 
 export default function LearnSubjectPage({ match }) {
-	const classes = useStyles();
+  const classes = useStyles();
 
-	return (
-		<Container>
-			<Box py={3}>
-				<SubjectContainer match={match} />
-			</Box>
-		</Container>
-	);
+  return (
+    <Container>
+      <Box py={3}>
+        <SubjectContainer match={match} />
+      </Box>
+    </Container>
+  );
 }

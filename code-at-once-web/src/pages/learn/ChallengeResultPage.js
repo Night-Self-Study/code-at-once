@@ -1,19 +1,18 @@
-import React, { useEffect } from 'react';
-import { makeStyles, Container, Box } from '@material-ui/core';
-import ChallengeResultContainer from 'containers/challenge/ChallengeResultContainer';
+import React from 'react';
+import { makeStyles } from '@material-ui/core';
+import ChallengeResult from '#/components/challenge/ChallengeResult';
+import MyContainer from '#/components/common/MyContainer';
 
 const useStyles = makeStyles({
-	root: {},
+  root: {},
 });
 
 export default function ResultPage() {
-	const classes = useStyles();
+  const classes = useStyles();
 
-	return (
-		<Container className={classes.root}>
-			<Box className={classes.long} py={3}>
-				<ChallengeResultContainer />
-			</Box>
-		</Container>
-	);
+  return (
+    <MyContainer>
+      <ChallengeResult />
+    </MyContainer>
+  );
 }
