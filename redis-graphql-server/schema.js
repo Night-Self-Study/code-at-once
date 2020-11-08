@@ -10,6 +10,22 @@ export default gql`
        email: String!
    }
 
+   type Problem{
+       _id: ID!
+       title: String!
+       problemDescription: [String!]
+       inputDescription: [String!]
+       outputDescription: [String!]
+       inputExample:[String!]
+       outputExample: [String!] 
+   }
+
+   type UserCode{
+        _id: ID!
+        language: String!
+        code: String! 
+    }
+
     input UserInput{
         id: String!
         password: String!
@@ -17,10 +33,13 @@ export default gql`
         email: String!
     }
 
-    type UserCode{
-        _id: ID!
-        language: String!
-        code: String! 
+    input ProblemInput{
+        title: String!
+        problemDescription: [String!]
+        inputDescription: [String!]
+        outputDescription: [String!]
+        inputExample:[String!]
+        outputExample: [String!] 
     }
 
     input CodeInput{
@@ -29,12 +48,14 @@ export default gql`
     }
 
     type Query {
-        get(key: String! ): String
+        get(key: String!): String,
+        getProblem(id: String!): Problem
     }
 
     type Mutation {
         createUser(key: String!, input: UserInput!): User,
-        createExtensionFile(key: String!, input: CodeInput!):UserCode
+        createProblem(key: String!, input: ProblemInput!): Boolean,
+        createExtensionFile(key: String!, input: CodeInput!):UserCode,
     }
 
 `;
