@@ -1,6 +1,7 @@
 import sys
 import subprocess
 import pymysql
+import time
 from mapping_error_using_regex import error_to_solve
 from mapping_wrong_answer import check_output, check_source_code_using_json
 
@@ -8,6 +9,7 @@ db = pymysql.connect(host='localhost', port=13306, user='root', password='rootpw
 cursor = db.cursor()
 
 submit_id = sys.argv[1]
+time.sleep(5)
 #submit_id = '18'
 sql = '''
 
