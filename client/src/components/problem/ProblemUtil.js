@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   makeStyles,
   TextField,
   Button,
   ButtonGroup,
-  Box,
   Grid,
 } from '@material-ui/core';
-import useTab from '#/hooks/useTab';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -20,25 +18,26 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
   },
+  selectedButton: {
+    backgroundColor: theme.palette.primary.dark,
+  },
 }));
 
-const buttonGroup = [
-  { idx: 0, value: '전체' },
-  { idx: 1, value: '초급' },
-  { idx: 2, value: '중급' },
-  { idx: 3, value: '고급' },
-];
-
-export default function ProblemUtil() {
+export default function ProblemUtil({
+  buttonGroup = [],
+  currentItem = 0,
+  changeItem = () => {},
+}) {
   const classes = useStyles();
-  const { currentItem, changeItem } = useTab(0, buttonGroup);
 
-  useEffect(() => {}, []);
+  const onClickTab = (index) => {
+    changeItem(index);
+  };
 
   return (
     <Grid container>
       <Grid item xs={8}>
-        <TextField fullWidth id='search-filed' label='search' type='search' />
+        <TextField fullWidth id='search-filed' label='Search' type='search' />
       </Grid>
       <Grid item xs={4} className={classes.buttonGrid}>
         <ButtonGroup
@@ -46,9 +45,15 @@ export default function ProblemUtil() {
           variant='contained'
           color='primary'
         >
-          {buttonGroup.map((level, index) => (
-            <Button key={level.idx} onClick={() => changeItem(level.idx)}>
-              {level.value}
+          {buttonGroup.map((button) => (
+            <Button
+              className={
+                currentItem.idx === button.idx ? classes.selectedButton : ''
+              }
+              key={button.idx}
+              onClick={() => onClickTab(button.idx)}
+            >
+              {button.text}
             </Button>
           ))}
         </ButtonGroup>
