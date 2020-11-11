@@ -1,37 +1,31 @@
 import React from 'react';
-import { makeStyles, Grid, Button, Box } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import { makeStyles, Grid } from '@material-ui/core';
+import Paper from './Paper';
+import Editor from './Editor';
 
 const useStyles = makeStyles({
   root: {
     height: '100%',
+  },
+  contents: {
+    display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    flexGrow: 1,
   },
 });
 
-export default function Template({ editorController, paper, editor }) {
+export default function Template({ data }) {
   const classes = useStyles();
-  const history = useHistory();
 
   return (
-    <Grid className={classes.root} container spacing={1}>
-      <Grid item xs={6}>
-        {paper}
+    <Grid container className={classes.root}>
+      <Grid item xs={12} md={6}>
+        <Paper data={data} />
       </Grid>
-      <Grid item xs={6}>
-        {editor}
+      <Grid item xs={12} md={6}>
+        <Editor />
       </Grid>
-
-      <Button
-        fullWidth
-        color='primary'
-        variant='contained'
-        onClick={() => {
-          history.push(`${history.location.pathname}/result`);
-        }}
-      >
-        제출
-      </Button>
     </Grid>
   );
 }

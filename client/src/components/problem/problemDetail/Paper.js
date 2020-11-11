@@ -2,11 +2,12 @@ import React from 'react';
 import {
   makeStyles,
   Paper as MuiPaper,
-  Typography,
   Box,
   Grid,
+  Divider,
 } from '@material-ui/core';
-import Headline from './Headline';
+
+import PaperHead from './PaperHead';
 import Example from './Example';
 import Contents from './Contents';
 
@@ -23,21 +24,22 @@ const useStyles = makeStyles((theme) => ({
   underline: {
     borderBottom: `1px solid ${theme.palette.primary.light}`,
   },
+  divider: {
+    margin: theme.spacing(2, 0),
+  },
 }));
 
-export default function Paper({ data, editorController }) {
+export default function Paper({ data }) {
   const classes = useStyles();
 
   return (
     <MuiPaper className={classes.root}>
-      <Box p={2}>
-        <Headline head={data.title}>{editorController}</Headline>
+      <Box p={3}>
+        <PaperHead title={data.title} />
         <Contents head={'설명'} body={data.problemDescription} />
-        <br />
         <Contents head={'입력'} body={data.inputDescription} />
-        <br />
         <Contents head={'출력'} body={data.outputDescription} />
-        <br />
+        <Divider className={classes.divider} />
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <Example head={'입력 예제'} body={data.inputExample} />

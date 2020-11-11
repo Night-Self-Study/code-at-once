@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import AceEditor from 'react-ace';
+import { Box, makeStyles } from '@material-ui/core';
 
 import 'ace-builds/src-noconflict/mode-python';
 import 'ace-builds/src-noconflict/mode-java';
 import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/ext-language_tools';
-import { Box, makeStyles } from '@material-ui/core';
+
+import { useCodeContext } from '#/contexts/CodeContext';
+import { JAVA, PYTHON } from '#/lib/constants';
 
 const pythonDefaultForm = `def solution(command):
   answer = ''
@@ -32,27 +35,27 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Editor({ language }) {
-  const [editorValue, setEditorValue] = useState('');
+export default function Editor() {
   const classes = useStyles();
+  const { code, setCode, language } = useCodeContext();
 
   useEffect(() => {
-    setEditorValue(language === 'python' ? pythonDefaultForm : javaDefaultForm);
-  }, [language]);
+    setCode(language === PYTHON ? pythonDefaultForm : javaDefaultForm);
+  }, [language, setCode]);
 
   return (
-    <Box className={classes.root}>
+    <div className={classes.root}>
       <AceEditor
         style={{ width: '100%', height: '100%' }}
-        placeholder='Placeholder Text'
-        mode={language === 'python' ? 'python' : 'java'}
+        placeholder='Type code'
+        mode={language === PYTHON ? PYTHON : JAVA}
         theme='monokai'
         name='webEditor'
-        value={editorValue}
+        value={code}
         onChange={(v) => {
-          setEditorValue(v);
+          setCode(v);
         }}
-        fontSize={14}
+        fontSize={'1rem'}
         showPrintMargin={true}
         showGutter={true}
         highlightActiveLine={true}
@@ -64,6 +67,6 @@ export default function Editor({ language }) {
           tabSize: 2,
         }}
       />
-    </Box>
+    </div>
   );
 }
