@@ -26,4 +26,4 @@ export const server = new ApolloServer({ typeDefs, resolvers, context: { client 
 server.applyMiddleware({ app });
 
 
-app.listen(8000);
+app.listen(3000);
