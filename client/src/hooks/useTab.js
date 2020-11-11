@@ -8,7 +8,7 @@ export default function useTab(initialTab, allTabs) {
   }
 
   return {
-    currentItem: currentIndex,
+    currentItem: allTabs[currentIndex],
     changeItem: setCurrentIndex,
   };
 }

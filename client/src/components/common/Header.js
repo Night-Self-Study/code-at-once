@@ -3,13 +3,15 @@ import { useHistory } from 'react-router-dom';
 import {
   makeStyles,
   AppBar,
-  Toolbar,
   Typography,
   Button,
   Container,
 } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
+  appBar: {
+    marginBottom: theme.spacing(3),
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -37,7 +39,7 @@ export default function Header() {
   };
 
   return (
-    <AppBar position='static' color='primary'>
+    <AppBar className={classes.appBar} position='static' color='primary'>
       <Container className={classes.container} maxWidth='lg'>
         <Button color='inherit' onClick={onClickLogo}>
           <img

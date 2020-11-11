@@ -1,5 +1,4 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
 
 import Introduce from '#/components/home/Introduce';
 import MyContainer from '#/components/common/MyContainer';
