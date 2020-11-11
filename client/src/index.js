@@ -5,9 +5,10 @@ import { CssBaseline } from '@material-ui/core';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { ApolloProvider } from '@apollo/client';
 
+import client from '#/modules/ApolloClient';
 import './index.css';
 import App from './App';
-import client from '#/modules/ApolloClient';
+import CodeContextProvider from './contexts/CodeContext';
 
 const theme = createMuiTheme({
   typography: {
@@ -31,12 +32,14 @@ const theme = createMuiTheme({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <MuiThemeProvider theme={theme}>
-      <BrowserRouter>
-        <CssBaseline />
-        <App />
-      </BrowserRouter>
-    </MuiThemeProvider>
+    <CodeContextProvider>
+      <MuiThemeProvider theme={theme}>
+        <BrowserRouter>
+          <CssBaseline />
+          <App />
+        </BrowserRouter>
+      </MuiThemeProvider>
+    </CodeContextProvider>
   </ApolloProvider>,
   document.getElementById('root'),
 );

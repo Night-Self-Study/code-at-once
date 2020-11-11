@@ -29,8 +29,8 @@ export const dummyProblemDataToDemo = {
   ],
   inputDescription: ['책 이름과 책 번호가 입력된다.'],
   outputDescription: ['책 이름과 책 번호가 출력된다.'],
-  inputExample: [1, 2, 3, 4],
-  outputExample: [2, 4, 6, 8],
+  inputExample: ['1, 2, 3, 4'],
+  outputExample: ['2, 4, 6, 8'],
 };
 
 export const dummySubjects = [
