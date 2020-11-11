@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import AceEditor from 'react-ace';
-import { Box, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 
+import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-python';
 import 'ace-builds/src-noconflict/mode-java';
 import 'ace-builds/src-noconflict/theme-monokai';
