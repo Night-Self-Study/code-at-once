@@ -26,6 +26,18 @@ export default gql`
         code: String! 
     }
 
+    type UserCodeResult{
+        _id: ID!
+        problemId: Int!
+        userId: String!
+        language: String!
+        submitAt: Date!
+        resultType: String!
+        message: String!
+    }
+
+    scalar Date
+
     input UserInput{
         id: String!
         password: String!
@@ -55,7 +67,7 @@ export default gql`
     type Mutation {
         createUser(key: String!, input: UserInput!): User,
         createProblem(key: String!, input: ProblemInput!): Boolean,
-        createExtensionFile(key: String!, input: CodeInput!):UserCode,
+        createExtensionFile(key: String!, input: CodeInput!): UserCodeResult,
     }
 
 `;
