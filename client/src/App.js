@@ -19,6 +19,8 @@ const useStyles = makeStyles({
     height: '100vh',
   },
   main: {
+    display: 'flex',
+    flexDirection: 'column',
     flexGrow: 1,
   },
 });
