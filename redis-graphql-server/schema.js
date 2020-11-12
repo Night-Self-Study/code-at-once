@@ -48,9 +48,11 @@ export default gql`
         outputExample: [String!] 
     }
 
-    input CodeInput{
+    input UserCodeInput{
+        userId: String!
+        problemId: Int!
+        sourceCode: String!
         language: String!
-        code: String!
     }
 
     type Query {
@@ -60,7 +62,7 @@ export default gql`
     type Mutation {
         createUser(key: String!, input: UserInput!): User,
         createProblem(id: Int!, input: ProblemInput!): Boolean,
-        markUserCode(id: Int!, input: CodeInput!): UserCodeResult,
+        markUserCode(id: Int!, input: UserCodeInput!): UserCodeResult,
         
     }
 
