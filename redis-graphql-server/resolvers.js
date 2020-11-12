@@ -39,9 +39,9 @@ export default {
                 return false;
             }
         },
-        createProblem: async (parent, { key, input }, { client}) => {
+        createProblem: async (parent, { id, input }, { client}) => {
             try {
-                await client.hmset(key, {
+                await client.hmset("Problem:" + id, {
                     title: input.title,
                     problemDescription: input.problemDescription.join(),
                     inputDescription: input.inputDescription.join(), 

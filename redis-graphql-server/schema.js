@@ -61,13 +61,13 @@ export default gql`
 
     type Query {
         get(key: String!): String,
-        getProblem(id: String!): Problem
+        getProblem(id: Int!): Problem
     }
 
     type Mutation {
         createUser(key: String!, input: UserInput!): User,
-        createProblem(key: String!, input: ProblemInput!): Boolean,
-        createExtensionFile(key: String!, input: CodeInput!): UserCodeResult,
+        createProblem(id: Int!, input: ProblemInput!): Boolean,
+        createExtensionFile(id: String!, input: CodeInput!): UserCodeResult,
     }
 
 `;
