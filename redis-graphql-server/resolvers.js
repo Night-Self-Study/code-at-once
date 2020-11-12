@@ -46,29 +46,32 @@ export default {
         },
         markUserCode: async (parent, { id, input }, { client }) => {
             try {
-                //temp -> 문제 번호 사용자 id 조합으로 바꿔주기
-                await client.hmset(id, input);
+                await client.hmset("Submission" + id, input);
                 const fs = require('fs');
+                let filename;
                 if(input.language === 'python'){
-                    fs.writeFileSync('temp'+'.py', input.code);
+                    filename = id + '_' + input.problemId + '_' + input.userId + '.py';
+                    fs.writeFileSync(filename, input.sourceCode);
                 } else if(input.language === 'java'){
-                    fs.writeFileSync('temp'+'.java', input.code);
+                    filename = id + '_' + input.problemId + '_' + input.userId +'.java';
+                    fs.writeFileSync(filename, input.sourceCode);
                 }
+
                 const util = require('util');
                 const exec = util.promisify(require('child_process').exec);
-                let command = '/home/ubuntu/code-at-once/domjudge-7.2.0/submit -y -p firstbook -l Java hello.java';
+                let command = '/home/ubuntu/code-at-once/domjudge-7.2.0/submit -y -p firstbook -l ' + input.language + ' ' + filename;
                 let { stdout, stderr } = await exec(command);
                 const [, submit_id] = stderr.split('id = s');
-                console.log(submit_id);
-                
                  
-                command = 'python3 /home/ubuntu/code-at-once/analyze_submission/mapping_not_correct.py '+submit_id.trim();
+                //set submit_id command temporarily
+                command = 'python3 /home/ubuntu/code-at-once/analyze_submission/mapping_not_correct.py '+(submit_id-1).toString();
                 const { stdout: cmdout, stderr: cmderr } = await exec(command);
-                console.log('stdout:', cmdout);
-                console.error('stderr:', cmderr);
-                
-
-                return client.hgetallAsync(id);
+                // console.log('stdout:', cmdout);
+                // console.error('stderr:', cmderr);
+                const result = cmdout.split('\n');
+		        
+                return {"problemId": input.problemId, "userId": input.userId, "language": input.language,
+                        "submitAt": new Date().toISOString(),"resultType": result[0], "message":result[1]};
             } catch (e) {
                 console.log(e);
                 return false;
