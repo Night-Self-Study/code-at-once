@@ -66,7 +66,7 @@ export default gql`
     type Mutation {
         createUser(key: String!, input: UserInput!): User,
         createProblem(id: Int!, input: ProblemInput!): Boolean,
-        createExtensionFile(id: Int!, input: CodeInput!): UserCodeResult,
+        markUserCode(id: Int!, input: CodeInput!): UserCodeResult,
     }
 
 `;

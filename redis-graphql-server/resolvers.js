@@ -44,10 +44,10 @@ export default {
                 return false;
             }
         },
-        createExtensionFile: async (parent, { key, input }, { client }) => {
+        markUserCode: async (parent, { id, input }, { client }) => {
             try {
                 //temp -> 문제 번호 사용자 id 조합으로 바꿔주기
-                await client.hmset(key, input);
+                await client.hmset(id, input);
                 const fs = require('fs');
                 if(input.language === 'python'){
                     fs.writeFileSync('temp'+'.py', input.code);
@@ -68,7 +68,7 @@ export default {
                 console.error('stderr:', cmderr);
                 
 
-                return client.hgetallAsync(key);
+                return client.hgetallAsync(id);
             } catch (e) {
                 console.log(e);
                 return false;
