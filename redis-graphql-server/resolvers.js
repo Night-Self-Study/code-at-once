@@ -3,18 +3,8 @@ import { stderr, stdout } from 'process';
 //resolvers.js
 export default {
     Query: {
-        get: async (parent, { key }, { client }) => {
-            try {
-                const result = await client.hgetallAsync(key);
-                console.log("result:" + JSON.stringify(result))
-                return result.name
-            } catch (e) {
-                return null;
-            }
-        },
         getProblem: async (parent, { id }, { client }) => {
             try{
-                // const result = JSON.stringify(await client.hgetallAsync(key)); 
                 const key = "Problem:"+id;
                 let problem = await client.hgetallAsync(key);
                 problem["problemDescription"] = [problem["problemDescription"]];

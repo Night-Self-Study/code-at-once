@@ -60,14 +60,13 @@ export default gql`
     }
 
     type Query {
-        get(key: String!): String,
         getProblem(id: Int!): Problem
     }
 
     type Mutation {
         createUser(key: String!, input: UserInput!): User,
         createProblem(id: Int!, input: ProblemInput!): Boolean,
-        createExtensionFile(id: String!, input: CodeInput!): UserCodeResult,
+        createExtensionFile(id: Int!, input: CodeInput!): UserCodeResult,
     }
 
 `;
