@@ -20,12 +20,6 @@ export default gql`
        outputExample: [String!] 
    }
 
-   type UserCode{
-        _id: ID!
-        language: String!
-        code: String! 
-    }
-
     type UserCodeResult{
         _id: ID!
         problemId: Int!
@@ -67,6 +61,7 @@ export default gql`
         createUser(key: String!, input: UserInput!): User,
         createProblem(id: Int!, input: ProblemInput!): Boolean,
         markUserCode(id: Int!, input: CodeInput!): UserCodeResult,
+        
     }
 
 `;
