@@ -134,6 +134,51 @@ def count_var_into_map(target, value):
                 tuple_map[name] = 1
 
 
+def put_param_into_type_map(func_args, real_args):
+    global dict_map
+    global list_map
+    global tuple_map
+    global set_map
+    global map_map
+
+    for i in range(0, len(real_args)) :
+        cur_real_args = ""
+        if isinstance(real_args[i], Name):
+            cur_real_args = real_args[i].id
+        cur_func_args = func_args.args[i].arg
+
+        if (isinstance(real_args[i], Subscript) and hasattr(real_args[i].slice, "value") and isinstance(real_args[i].slice.value, Str)) or \
+                isinstance(real_args[i], Dict) or isinstance(real_args[i], DictComp) or cur_real_args in dict_map :
+            if cur_func_args not in dict_map :
+                dict_map[cur_func_args] = 1
+            else :
+                dict_map[cur_func_args] = dict_map[cur_func_args]+1
+
+        if isinstance(real_args[i], Subscript) or isinstance(real_args[i], List) or isinstance(real_args[i], ListComp) or cur_real_args in list_map :
+            if cur_func_args not in list_map :
+                list_map[cur_func_args] = 1
+            else :
+                list_map[cur_func_args] = list_map[cur_func_args]+1
+
+        if cur_real_args in tuple_map :
+            if cur_func_args not in tuple_map :
+                tuple_map[cur_func_args] = 1
+            else :
+                tuple_map[cur_func_args] = tuple_map[cur_func_args]+1
+
+        if cur_real_args in set_map :
+            if cur_func_args not in set_map :
+                set_map[cur_func_args] = 1
+            else :
+                set_map[cur_func_args] = set_map[cur_func_args]+1
+
+        if cur_real_args in map_map :
+            if cur_func_args not in map_map :
+                map_map[cur_func_args] = 1
+            else :
+                map_map[cur_func_args] = map_map[cur_func_args]+1
+
+
 def count_object_type_in_method(body_list, parent_func_name, parent_recv_num):
     global loop_count
     global recv_count
@@ -165,10 +210,12 @@ def count_object_type_in_method(body_list, parent_func_name, parent_recv_num):
 
             if isinstance(a_body.func, Attribute):
                 if str(type(a_body.func.attr)) == "<class 'str'>" and a_body.func.attr in func_node_map :
-                    if a_body.func.attr == parent_func_name :
-                        count_object_type_in_method(func_node_map[a_body.func.attr].body, a_body.func.attr, parent_recv_num+1)
-                    else :
-                        count_object_type_in_method(func_node_map[a_body.func.attr].body, a_body.func.attr,
+                    func_node = func_node_map[a_body.func.attr]
+                    if a_body.func.attr == parent_func_name:
+                        count_object_type_in_method(func_node.body, a_body.func.attr, parent_recv_num + 1)
+                    else:
+                        put_param_into_type_map(func_node.args, a_body.args)
+                        count_object_type_in_method(func_node.body, a_body.func.attr,
                                                     parent_recv_num)
                 count_object_type_in_method([a_body.func], parent_func_name, parent_recv_num)
                 continue
@@ -186,11 +233,11 @@ def count_object_type_in_method(body_list, parent_func_name, parent_recv_num):
                 else :
                     count_object_type_in_method([a_body.func], parent_func_name, parent_recv_num)
                 continue
-
             func_node = func_node_map[name]
 
             if func_node != None:
                 if name != parent_func_name:
+                    put_param_into_type_map(func_node.args, a_body.args)
                     count_object_type_in_method(func_node.body, name, parent_recv_num)
                     count_func_into_map(func_node)
                 else:
@@ -297,7 +344,9 @@ def count_object_type(body_list):
             if isinstance(a_body.func, Attribute):
 
                 if str(type(a_body.func.attr)) == "<class 'str'>" and a_body.func.attr in func_node_map :
-                    count_object_type_in_method(func_node_map[a_body.func.attr].body, a_body.func.attr, 0)
+                    func_node = func_node_map[a_body.func.attr]
+                    put_param_into_type_map(func_node.args, a_body.args)
+                    count_object_type_in_method(func_node.body, a_body.func.attr, 0)
                 count_object_type([a_body.func])
                 continue
 
@@ -318,6 +367,7 @@ def count_object_type(body_list):
             func_node = func_node_map[name]
 
             if func_node is not None:
+                put_param_into_type_map(func_node.args, a_body.args)
                 count_object_type_in_method(func_node.body, name, 0)
                 count_func_into_map(func_node)
 
