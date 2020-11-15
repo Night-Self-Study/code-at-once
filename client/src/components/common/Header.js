@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import {
   makeStyles,
@@ -7,11 +7,9 @@ import {
   Button,
   Container,
 } from '@material-ui/core';
+import { useUserContext } from '#/contexts/UserContext';
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    marginBottom: theme.spacing(3),
-  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -25,13 +23,14 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   logo: {
+    width: 64,
     margin: theme.spacing(0, 1),
   },
 }));
 
 export default function Header() {
   const classes = useStyles();
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const { isLoggedIn, setUser } = useUserContext();
   const history = useHistory();
 
   const onClickLogo = () => {
@@ -39,30 +38,25 @@ export default function Header() {
   };
 
   return (
-    <AppBar className={classes.appBar} position='static' color='primary'>
+    <AppBar position='static' color='primary'>
       <Container className={classes.container} maxWidth='lg'>
         <Button color='inherit' onClick={onClickLogo}>
-          <img
-            className={classes.logo}
-            src='/images/logo_transparent.png'
-            alt='logo'
-            width='64'
-          />
+          <img className={classes.logo} src='/images/logo.png' alt='logo' />
           <Typography variant='h1' className={classes.title}>
             Code at Once
           </Typography>
         </Button>
         <RightPanel
           isLoggedIn={isLoggedIn}
-          setLoggedIn={setLoggedIn}
           history={history}
+          setUser={setUser}
         />
       </Container>
     </AppBar>
   );
 }
 
-const RightPanel = ({ isLoggedIn, setLoggedIn, history }) => (
+const RightPanel = ({ isLoggedIn, setUser, history }) => (
   <div>
     {' '}
     {isLoggedIn ? (
@@ -70,15 +64,7 @@ const RightPanel = ({ isLoggedIn, setLoggedIn, history }) => (
         <Button
           color='inherit'
           onClick={() => {
-            history.push('/mypage');
-          }}
-        >
-          <Typography>MyPage</Typography>
-        </Button>
-        <Button
-          color='inherit'
-          onClick={() => {
-            setLoggedIn(false);
+            setUser(null);
           }}
         >
           <Typography>Logout</Typography>
@@ -89,7 +75,7 @@ const RightPanel = ({ isLoggedIn, setLoggedIn, history }) => (
         <Button
           color='inherit'
           onClick={() => {
-            setLoggedIn(true);
+            history.push('/auth');
           }}
         >
           <Typography>Login</Typography>
