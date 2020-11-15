@@ -60,9 +60,9 @@ export default gql`
     }
 
     type Mutation {
-        createUser(key: String!, input: UserInput!): User,
-        createProblem(id: Int!, input: ProblemInput!): Boolean,
-        markUserCode(id: Int!, input: UserCodeInput!): UserCodeResult,
+        createUser(key: String!, input: UserInput!): User
+        createProblem(id: Int!, input: ProblemInput!): Boolean
+        markUserCode(id: Int!, input: UserCodeInput!): UserCodeResult
         
     }
 
