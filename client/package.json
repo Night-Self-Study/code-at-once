@@ -20,7 +20,8 @@
   },
   "scripts": {
     "start": "craco start",
-    "dev": "set BROWSER=none&&craco start",
+    "dev": "set BROWSER=none && craco start",
+    "prebuild": "rimraf build",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^5.8.0",
-    "craco-alias": "^2.1.1"
+    "craco-alias": "^2.1.1",
+    "rimraf": "^3.0.2"
   }
 }
