@@ -54,6 +54,11 @@ export default gql`
     language: String!
   }
 
+  input LoginInput {
+    id: String!
+    password: String!
+  }
+
   type Query {
     getProblem(id: Int!): Problem
   }
