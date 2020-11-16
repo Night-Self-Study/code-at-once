@@ -60,6 +60,7 @@ export default gql`
   }
 
   type Query {
+    getUser(input: LoginInput!): Boolean
     getProblem(id: Int!): Problem
   }
 
