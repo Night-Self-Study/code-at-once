@@ -18,10 +18,10 @@ export default {
   },
 
   Mutation: {
-    createUser: async (parent, { key, input }, { client }) => {
+    createUser: async (parent, { input }, { client }) => {
       try {
-        await client.hmset(key + ":" + input.id, input);
-        return client.hgetallAsync(key + ":" + input.id);
+        await client.hmset("User:" + input.id, input);
+        return client.hgetallAsync("User:" + input.id);
       } catch (e) {
         console.log(e);
         return false;
