@@ -42,21 +42,17 @@ export default {
         return false;
       }
     },
-    markUserCode: async (parent, { id, input }, { client }) => {
+    markUserCode: async (parent, { input }, { client }) => {
       try {
-        await client.hmset("Submission" + id, input);
-        const fs = require("fs");
         let filename;
         if (input.language === "python") {
-          filename = id + "_" + input.problemId + "_" + input.userId + ".py";
+          filename = input.problemId + "_" + input.userId + ".py";
           fs.writeFileSync(filename, input.sourceCode);
         } else if (input.language === "java") {
-          filename = id + "_" + input.problemId + "_" + input.userId + ".java";
+          filename = input.problemId + "_" + input.userId + ".java";
           fs.writeFileSync(filename, input.sourceCode);
         }
-
-        const util = require("util");
-        const exec = util.promisify(require("child_process").exec);
+        const exec = util.promisify(child_process.exec);
         let command =
           "/home/ubuntu/code-at-once/domjudge-7.2.0/submit -y -p firstbook -l " +
           input.language +
@@ -73,6 +69,7 @@ export default {
         // console.log('stdout:', cmdout);
         // console.error('stderr:', cmderr);
         const result = cmdout.split("\n");
+        await client.hmset("Submission" + submit_id, input);
 
         return {
           problemId: input.problemId,
