@@ -1,6 +1,22 @@
 //resolvers.js
 export default {
   Query: {
+    getUser: async (parent, { input }, { client }) => {
+      try {
+        const user = await client.hgetallAsync("User:" + input.id);
+        if (user == null) {
+          return false;
+        }
+        if (user.id) {
+          if (user.password == input.password) {
+            return true;
+          }
+        }
+        return false;
+      } catch (e) {
+        return e;
+      }
+    },
     getProblem: async (parent, { id }, { client }) => {
       try {
         const key = "Problem:" + id;
