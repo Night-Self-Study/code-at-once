@@ -483,7 +483,7 @@ def evaluate_using_json_data(wrong_dict, correct_total_dict):
     if len(sorted_diff) > 0 :
         solve = sorted_diff[0][0]+" 사용 방식이 잘못되었습니다."
 
-    return str(sorted_diff)+solve
+    return str(sorted_diff)+"\n"+solve
 
 
 def evaluate(training_src, test_src):
