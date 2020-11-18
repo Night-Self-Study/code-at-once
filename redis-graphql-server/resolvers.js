@@ -1,6 +1,26 @@
 //resolvers.js
+import fs from "fs";
+import util from "util";
+import child_process from "child_process";
+
 export default {
   Query: {
+    getUser: async (parent, { input }, { client }) => {
+      try {
+        const user = await client.hgetallAsync("User:" + input.id);
+        if (user == null) {
+          return false;
+        }
+        if (user.id) {
+          if (user.password == input.password) {
+            return true;
+          }
+        }
+        return false;
+      } catch (e) {
+        return e;
+      }
+    },
     getProblem: async (parent, { id }, { client }) => {
       try {
         const key = "Problem:" + id;
@@ -18,10 +38,10 @@ export default {
   },
 
   Mutation: {
-    createUser: async (parent, { key, input }, { client }) => {
+    createUser: async (parent, { input }, { client }) => {
       try {
-        await client.hmset(key + ":" + input.id, input);
-        return client.hgetallAsync(key + ":" + input.id);
+        await client.hmset("User:" + input.id, input);
+        return client.hgetallAsync("User:" + input.id);
       } catch (e) {
         console.log(e);
         return false;
@@ -42,21 +62,17 @@ export default {
         return false;
       }
     },
-    markUserCode: async (parent, { id, input }, { client }) => {
+    markUserCode: async (parent, { input }, { client }) => {
       try {
-        await client.hmset("Submission" + id, input);
-        const fs = require("fs");
         let filename;
         if (input.language === "python") {
-          filename = id + "_" + input.problemId + "_" + input.userId + ".py";
+          filename = input.problemId + "_" + input.userId + ".py";
           fs.writeFileSync(filename, input.sourceCode);
         } else if (input.language === "java") {
-          filename = id + "_" + input.problemId + "_" + input.userId + ".java";
+          filename = input.problemId + "_" + input.userId + ".java";
           fs.writeFileSync(filename, input.sourceCode);
         }
-
-        const util = require("util");
-        const exec = util.promisify(require("child_process").exec);
+        const exec = util.promisify(child_process.exec);
         let command =
           "/home/ubuntu/code-at-once/domjudge-7.2.0/submit -y -p firstbook -l " +
           input.language +
@@ -64,7 +80,6 @@ export default {
           filename;
         let { stdout, stderr } = await exec(command);
         const [, submit_id] = stderr.split("id = s");
-
         //set submit_id command temporarily
         command =
           "python3 /home/ubuntu/code-at-once/analyze_submission/mapping_not_correct.py " +
@@ -73,6 +88,7 @@ export default {
         // console.log('stdout:', cmdout);
         // console.error('stderr:', cmderr);
         const result = cmdout.split("\n");
+        await client.hmset("Submission" + submit_id, input);
 
         return {
           problemId: input.problemId,
