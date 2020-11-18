@@ -23,14 +23,19 @@ export const dummyProblems = [
 ];
 
 export const dummyProblemDataToDemo = {
-  title: '책 정리하기',
+  title: '책 정리하기 DEMO',
   problemDescription: [
-    `책 이름과 책에 대한 번호가 input으로 주어질 때, 번호가 가장 작은 책에 대해서, 해당 책 이름과 책의 번호를 출력하시오.`,
+    `도서관에 책이 N개가 있다.\n각각의 책에 대해서, 책 번호와 책 이름이 존재한다.\nN과 책의 정보가 input으로 주어질 때, 번호가 가장 작은 책의 이름을 출력하시오.\n `,
   ],
-  inputDescription: ['책 이름과 책 번호가 입력된다.'],
-  outputDescription: ['책 이름과 책 번호가 출력된다.'],
-  inputExample: ['1, 2, 3, 4'],
-  outputExample: ['2, 4, 6, 8'],
+  inputDescription: [
+    '숫자 N과 N만큼의 책의 정보(책 번호, 책 이름)가 입력된다.',
+  ],
+  outputDescription: ['가장 번호가 작은 책의 이름이 출력된다.'],
+  inputExample: [
+    `5\n25 DataStructure\n643 DataBase\n1 WebProgramming\n67 DataCommunication\n732 ProgrammingLanguage`,
+    `10\n235 DataStructure\n547 DataBase\n34 WebProgramming\n8 DataCommunication\n62 ProgrammingLanguage\n257 Google\n643 ComputerStructure\n19 SystemProgramming\n13 DataStructure2\n97 ComputerNetwork`,
+  ],
+  outputExample: ['WebProgramming', 'DataCommunication'],
 };
 
 export const dummySubjects = [

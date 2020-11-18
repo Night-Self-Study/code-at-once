@@ -5,17 +5,23 @@ import Template from '#/components/problem/problemDetail/Template';
 import MyContainer from '#/components/common/MyContainer';
 import Loading from '#/components/common/Loading';
 import { QUERIES } from '#/modules/ApolloClient';
+import { dummyProblemDataToDemo } from '#/lib/dummyDB';
 
 export default function DetailPage() {
-  const { data, loading } = useQuery(QUERIES.GET_PROBLEM, {
-    variables: { id: 0 },
+  const { data, loading, error } = useQuery(QUERIES.GET_PROBLEM, {
+    variables: { id: 7 },
   });
 
   if (loading) {
     return <Loading />;
   }
 
-  const { getProblem: problem } = data;
+  let problem = [];
+  if (error) {
+    problem = dummyProblemDataToDemo;
+  } else {
+    problem = data.getProblem;
+  }
 
   return (
     <MyContainer>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { makeStyles, Grid, Typography, Box } from '@material-ui/core';
+
+import { resultTable } from '#/lib/constants';
 import Loading from '#/components/common/Loading';
 
 const useStyles = makeStyles((theme) => ({
@@ -27,15 +29,17 @@ const useStyles = makeStyles((theme) => ({
 
 const now = moment().format('HH:mm:ss');
 
-export default function Result() {
+export default function Result({ data }) {
   const classes = useStyles();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     //fetch data
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
   if (isLoading) {
@@ -46,29 +50,32 @@ export default function Result() {
     <Grid container spacing={3} justify='center'>
       <Grid item xs={12}>
         <Typography className={classes.title} variant='h4'>
-          제출 결과
+          결과
         </Typography>
       </Grid>
       <Grid item xs={12}>
         <Grid container className={classes.infoArea}>
           <Grid className={classes.infoItem} item xs={3}>
             <Typography align='center'>
-              문제: <strong>책 정리하기</strong>
+              문제: <strong>First Book</strong>
             </Typography>
           </Grid>
           <Grid className={classes.infoItem} item xs={3}>
             <Typography align='center'>
-              제출: <strong>{now}</strong>
+              제출:{' '}
+              <strong>
+                {moment(data.submitAt).format('YY-MM-DD hh:mm:ss')}
+              </strong>
             </Typography>
           </Grid>
           <Grid className={classes.infoItem} item xs={3}>
             <Typography align='center'>
-              언어: <strong>Java</strong>
+              언어: <strong>{resultTable['language'][data.language]}</strong>
             </Typography>
           </Grid>
           <Grid className={classes.infoItem} item xs={3}>
             <Typography align='center'>
-              컴파일: <strong style={{ color: 'green' }}>성공</strong>
+              컴파일: <strong>{resultTable['type'][data.resultType]}</strong>
             </Typography>
           </Grid>
         </Grid>
@@ -80,10 +87,7 @@ export default function Result() {
       </Grid>
       <Grid item xs={12}>
         <Box className={classes.resultArea}>
-          <Typography>
-            <u style={{ color: 'red' }}>오답</u>입니다.
-          </Typography>
-          <Typography>{`해결 방법 추천: Map을 사용해보세요.`}</Typography>
+          <Typography>{data.message}</Typography>
         </Box>
       </Grid>
     </Grid>

@@ -25,16 +25,15 @@ export default function LanguageController() {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id='select-label'>Language</InputLabel>
+        <InputLabel>Language</InputLabel>
         <Select
-          id='language-select'
           value={language}
           onChange={(e) => {
             setLanguage(e.target.value);
           }}
         >
-          <MenuItem value={PYTHON}>Python</MenuItem>
           <MenuItem value={JAVA}>Java</MenuItem>
+          <MenuItem value={PYTHON}>Python</MenuItem>
         </Select>
       </FormControl>
     </div>

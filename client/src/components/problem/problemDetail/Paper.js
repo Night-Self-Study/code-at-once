@@ -42,16 +42,16 @@ export default function Paper({ data }) {
         <Divider className={classes.divider} />
         <Grid container spacing={2}>
           <Grid item xs={6}>
-            <Example head={'입력 예제'} body={data.inputExample} />
+            <Example head={'입력 예제'} body={data.inputExample[0]} />
           </Grid>
           <Grid item xs={6}>
-            <Example head={'출력 예제'} body={data.outputExample} />
+            <Example head={'출력 예제'} body={data.outputExample[0]} />
           </Grid>
           <Grid item xs={6}>
-            <Example head={'입력 예제'} body={data.inputExample} />
+            <Example head={'입력 예제'} body={data.inputExample[1]} />
           </Grid>
           <Grid item xs={6}>
-            <Example head={'출력 예제'} body={data.outputExample} />
+            <Example head={'출력 예제'} body={data.outputExample[1]} />
           </Grid>
         </Grid>
       </Box>

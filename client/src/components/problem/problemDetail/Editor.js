@@ -15,8 +15,8 @@ const pythonDefaultForm = `def solution(command):
   
   return answer`;
 
-const javaDefaultForm = `class solution {
-	public String solution(String[] command) {
+const javaDefaultForm = `class Solution {
+	public static void main(String[] args) {
 		String answer = "";
 		return answer;
 	}

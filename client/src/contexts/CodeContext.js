@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
-import { PYTHON } from '#/lib/constants';
+import { JAVA } from '#/lib/constants';
 
 const CodeContext = createContext();
 
@@ -10,7 +10,7 @@ export function useCodeContext() {
 
 export default function CodeContextProvider({ children }) {
   const [code, setCode] = useState('');
-  const [language, setLanguage] = useState(PYTHON);
+  const [language, setLanguage] = useState(JAVA);
 
   return (
     <CodeContext.Provider value={{ code, setCode, language, setLanguage }}>

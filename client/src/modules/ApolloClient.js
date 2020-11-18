@@ -18,6 +18,18 @@ export const QUERIES = {
       }
     }
   `,
+  SUBMIT_PROBLEM: gql`
+    mutation SubmitProblem($userInput: UserCodeInput!) {
+      markUserCode(input: $userInput) {
+        problemId
+        userId
+        language
+        submitAt
+        resultType
+        message
+      }
+    }
+  `,
 };
 
 export default client;

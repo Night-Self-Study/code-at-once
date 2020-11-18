@@ -9,6 +9,7 @@ import client from '#/modules/ApolloClient';
 import './index.css';
 import App from './App';
 import CodeContextProvider from './contexts/CodeContext';
+import UserContextProvider from './contexts/UserContext';
 
 const theme = createMuiTheme({
   typography: {
@@ -28,18 +29,27 @@ const theme = createMuiTheme({
       contrastText: '#fff',
     },
   },
+  overrides: {
+    MuiTypography: {
+      root: {
+        whiteSpace: 'pre-wrap',
+      },
+    },
+  },
 });
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <CodeContextProvider>
-      <MuiThemeProvider theme={theme}>
-        <BrowserRouter>
-          <CssBaseline />
-          <App />
-        </BrowserRouter>
-      </MuiThemeProvider>
-    </CodeContextProvider>
+    <UserContextProvider>
+      <CodeContextProvider>
+        <MuiThemeProvider theme={theme}>
+          <BrowserRouter>
+            <CssBaseline />
+            <App />
+          </BrowserRouter>
+        </MuiThemeProvider>
+      </CodeContextProvider>
+    </UserContextProvider>
   </ApolloProvider>,
   document.getElementById('root'),
 );
