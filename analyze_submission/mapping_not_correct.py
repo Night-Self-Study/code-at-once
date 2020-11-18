@@ -4,11 +4,11 @@ import pymysql
 import time
 from mapping_error_using_regex import error_to_solve
 from mapping_wrong_answer import check_output, check_source_code_using_json
+import polling
 
 db = pymysql.connect(host='localhost', port=13306, user='root', password='rootpw', db='domjudge', charset='utf8')
 cursor = db.cursor()
-
-time.sleep(7)
+#time.sleep(7)
 submit_id = sys.argv[1]
 #submit_id = '18'
 sql = '''
@@ -18,8 +18,16 @@ as j on s.submitid=j.submitid and s.langid = l.langid where s.submitid=%s
 
 '''
 cursor.execute(sql, submit_id)
+#submission_data = cursor.fetchall()[0]
+
+db_handle = polling.poll(
+    lambda : cursor.fetchall()[0],
+    step=0.5,
+    timeout=10
+)
+#time.sleep(5)
+#db.commit()
 submission_data = cursor.fetchall()[0]
-time.sleep(5)
 lang = submission_data[0]
 error_type = submission_data[1]
 prob_id = submission_data[2]
