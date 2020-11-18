@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import moment from 'moment';
 import { makeStyles, Grid, Typography, Box } from '@material-ui/core';
 
 import { resultTable } from '#/lib/constants';
-import Loading from '#/components/common/Loading';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -27,24 +26,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const now = moment().format('HH:mm:ss');
-
 export default function Result({ data }) {
   const classes = useStyles();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    //fetch data
-    const timeoutId = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timeoutId);
-  }, []);
-
-  if (isLoading) {
-    return <Loading />;
-  }
 
   return (
     <Grid container spacing={3} justify='center'>

@@ -10,6 +10,7 @@ import './index.css';
 import App from './App';
 import CodeContextProvider from './contexts/CodeContext';
 import UserContextProvider from './contexts/UserContext';
+import LoadingContextProvider from './contexts/LoadingContext';
 
 const theme = createMuiTheme({
   typography: {
@@ -41,14 +42,16 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <ApolloProvider client={client}>
     <UserContextProvider>
-      <CodeContextProvider>
-        <MuiThemeProvider theme={theme}>
-          <BrowserRouter>
-            <CssBaseline />
-            <App />
-          </BrowserRouter>
-        </MuiThemeProvider>
-      </CodeContextProvider>
+      <LoadingContextProvider>
+        <CodeContextProvider>
+          <MuiThemeProvider theme={theme}>
+            <BrowserRouter>
+              <CssBaseline />
+              <App />
+            </BrowserRouter>
+          </MuiThemeProvider>
+        </CodeContextProvider>
+      </LoadingContextProvider>
     </UserContextProvider>
   </ApolloProvider>,
   document.getElementById('root'),

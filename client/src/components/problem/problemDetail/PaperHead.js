@@ -6,6 +6,7 @@ import { useMutation } from '@apollo/client';
 import { QUERIES } from '#/modules/ApolloClient';
 import { useCodeContext } from '#/contexts/CodeContext';
 import { useUserContext } from '#/contexts/UserContext';
+import { useLoadingContext } from '#/contexts/LoadingContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,11 +32,13 @@ export default function PaperHead({ title }) {
   const match = useRouteMatch();
   const { code, language } = useCodeContext();
   const { user } = useUserContext();
+  const { setIsLoading } = useLoadingContext();
 
   const problemId = useMemo(() => match.params.id, [match]);
 
   const [submitCode] = useMutation(QUERIES.SUBMIT_PROBLEM, {
     onCompleted: (d) => {
+      setIsLoading(false);
       history.push({
         pathname: `${match.url}/result`,
         state: { data: d.markUserCode },
@@ -45,13 +48,14 @@ export default function PaperHead({ title }) {
 
   const onClickSubmit = () => {
     const { id } = user;
+    setIsLoading(true);
     submitCode({
       variables: {
         userInput: {
-          userId: 'solidw',
-          problemId: 1,
+          userId: id,
+          problemId: 7,
           sourceCode: code,
-          language: 'java',
+          language: language,
         },
       },
     });

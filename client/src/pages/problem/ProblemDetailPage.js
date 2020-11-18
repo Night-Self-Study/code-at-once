@@ -15,14 +15,9 @@ export default function DetailPage() {
   if (loading) {
     return <Loading />;
   }
+  console.log(data, error);
 
-  let problem = [];
-  if (error) {
-    problem = dummyProblemDataToDemo;
-  } else {
-    problem = data.getProblem;
-  }
-
+  let problem = dummyProblemDataToDemo;
   return (
     <MyContainer>
       <Template data={problem} />

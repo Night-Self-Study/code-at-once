@@ -9,6 +9,8 @@ import HomePage from '#/pages/HomePage';
 import AuthRouter from '#/pages/auth/Router';
 import NotFoundPage from '#/pages/NotFoundPage';
 import ProblemRouter from '#/pages/problem/Router';
+import Loading from './components/common/Loading';
+import { useLoadingContext } from './contexts/LoadingContext';
 
 moment.locale('ko');
 
@@ -27,9 +29,11 @@ const useStyles = makeStyles({
 
 export default function App() {
   const classes = useStyles();
+  const { isLoading } = useLoadingContext();
 
   return (
     <div className={classes.root}>
+      {isLoading && <Loading />}
       <Header auth={false} />
       <main className={classes.main}>
         <Switch>
