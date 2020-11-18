@@ -49,14 +49,8 @@ export default {
     },
     createProblem: async (parent, { id, input }, { client }) => {
       try {
-        await client.hmset("Problem:" + id, {
-          title: input.title,
-          problemDescription: input.problemDescription.join(),
-          inputDescription: input.inputDescription.join(),
-          outputDescription: input.outputDescription.join(),
-          inputExample: input.inputExample.join(),
-          outputExample: input.outputExample.join(),
-        });
+        const problemDetail = JSON.stringify(input);
+        await client.set("Problem:" + id, problemDetail);
         return true;
       } catch (e) {
         return false;
