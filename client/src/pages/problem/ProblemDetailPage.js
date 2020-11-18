@@ -11,18 +11,13 @@ export default function DetailPage() {
   const { data, loading, error } = useQuery(QUERIES.GET_PROBLEM, {
     variables: { id: 7 },
   });
-
+  console.log(data, error);
   if (loading) {
     return <Loading />;
   }
 
-  let problem = [];
-  if (error) {
-    problem = dummyProblemDataToDemo;
-  } else {
-    problem = data.getProblem;
-  }
-
+  let problem = dummyProblemDataToDemo;
+  console.log(problem);
   return (
     <MyContainer>
       <Template data={problem} />
