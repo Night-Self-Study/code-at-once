@@ -24,13 +24,10 @@ export default {
     getProblem: async (parent, { id }, { client }) => {
       try {
         const key = "Problem:" + id;
-        let problem = await client.hgetallAsync(key);
-        problem["problemDescription"] = [problem["problemDescription"]];
-        problem["inputDescription"] = [problem["inputDescription"]];
-        problem["outputDescription"] = [problem["outputDescription"]];
-        problem["inputExample"] = [problem["inputExample"]];
-        problem["outputExample"] = [problem["outputExample"]];
-        return problem;
+        let problem = await client.getAsync(key);
+        const newProblem = JSON.parse(problem);
+
+        return newProblem;
       } catch (e) {
         return e;
       }
@@ -77,7 +74,7 @@ export default {
         //set submit_id command temporarily
         command =
           "python3 /home/ubuntu/code-at-once/analyze_submission/mapping_not_correct.py " +
-          (submit_id - 1).toString();
+          submit_id.toString();
         const { stdout: cmdout, stderr: cmderr } = await exec(command);
         // console.log('stdout:', cmdout);
         // console.error('stderr:', cmderr);
