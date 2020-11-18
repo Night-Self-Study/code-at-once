@@ -4,12 +4,19 @@ import pymysql
 import time
 from mapping_error_using_regex import error_to_solve
 from mapping_wrong_answer import check_output, check_source_code_using_json
+import polling2
 
-db = pymysql.connect(host='localhost', port=13306, user='root', password='rootpw', db='domjudge', charset='utf8')
+def submit_data(cursor, sql, submit_id):
+    cursor.execute(sql, submit_id)
+    fet = cursor.fetchall()
+
+    if len(fet)==1 and len(fet[0])==3 and fet[0][1] is not None:
+        return fet
+
+db = pymysql.connect(host='localhost', port=13306, user='root', password='rootpw', db='domjudge', charset='utf8', autocommit=True)
 cursor = db.cursor()
-
+#time.sleep(7)
 submit_id = sys.argv[1]
-time.sleep(5)
 #submit_id = '18'
 sql = '''
 
@@ -17,9 +24,15 @@ select l.name, j.result, s.probid from `submission` as s join `language` as l jo
 as j on s.submitid=j.submitid and s.langid = l.langid where s.submitid=%s
 
 '''
-cursor.execute(sql, submit_id)
-submission_data = cursor.fetchall()[0]
 
+db_handle = polling2.poll(
+        lambda: submit_data(cursor, sql, submit_id),
+        step=1,
+        timeout=60
+)
+
+submission_data = db_handle[0]
+#time.sleep(7)
 lang = submission_data[0]
 error_type = submission_data[1]
 prob_id = submission_data[2]
@@ -87,8 +100,9 @@ elif error_type == 'wrong-answer':
         print(solve)
 
 elif error_type == 'correct' :
-    subprocess.call(["python3", "correct_data_to_json.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    
+    print("correct!")
+    #subprocess.call(["python3", "correct_data_to_json.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
 
 db.close()
 
