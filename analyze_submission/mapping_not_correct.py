@@ -8,8 +8,8 @@ from mapping_wrong_answer import check_output, check_source_code_using_json
 db = pymysql.connect(host='localhost', port=13306, user='root', password='rootpw', db='domjudge', charset='utf8')
 cursor = db.cursor()
 
+time.sleep(7)
 submit_id = sys.argv[1]
-time.sleep(5)
 #submit_id = '18'
 sql = '''
 
@@ -19,7 +19,7 @@ as j on s.submitid=j.submitid and s.langid = l.langid where s.submitid=%s
 '''
 cursor.execute(sql, submit_id)
 submission_data = cursor.fetchall()[0]
-
+time.sleep(5)
 lang = submission_data[0]
 error_type = submission_data[1]
 prob_id = submission_data[2]
