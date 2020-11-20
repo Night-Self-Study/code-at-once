@@ -12,6 +12,7 @@ export default gql`
   type Problem {
     _id: ID!
     title: String!
+    level: String!
     problemDescription: [String!]
     inputDescription: [String!]
     outputDescription: [String!]
@@ -40,6 +41,7 @@ export default gql`
 
   input ProblemInput {
     title: String!
+    level: String!
     problemDescription: [String!]
     inputDescription: [String!]
     outputDescription: [String!]
