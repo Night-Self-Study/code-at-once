@@ -25,13 +25,15 @@ export default function RegisterPage() {
     <Container className={classes.root} maxWidth='sm'>
       <Typography variant='h3'>회원가입</Typography>
       <CustomForm
-        data={['ID', 'Password', 'Password 확인', '이름', 'E-Mail']}
+        data={[
+          { label: 'ID', variableName: 'id' },
+          { label: 'Password', variableName: 'password' },
+          { label: 'Password 확인', variableName: 'passwordConfirm' },
+          { label: '이름', variableName: 'name' },
+          { label: '이메일', variableName: 'email' },
+        ]}
+        type='register'
       />
-      <Box py={2}>
-        <Button fullWidth variant='contained' color='secondary'>
-          회원가입
-        </Button>
-      </Box>
     </Container>
   );
 }
