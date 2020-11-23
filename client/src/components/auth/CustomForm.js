@@ -89,7 +89,7 @@ export default function CustomForm({ data = [], type = 'register' }) {
             helperText={errors[variableName] ? errors[variableName] : ''}
             error={!!errors[variableName]}
           />
-          {variableName === 'id' && (
+          {type === 'register' && variableName === 'id' && (
             <Button
               className={classes.checkIdButton}
               variant='contained'
