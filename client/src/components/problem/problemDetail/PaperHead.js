@@ -47,12 +47,11 @@ export default function PaperHead({ title }) {
   });
 
   const onClickSubmit = () => {
-    const { id } = user;
     setIsLoading(true);
     submitCode({
       variables: {
         userInput: {
-          userId: id,
+          userId: 'solidw',
           problemId: 7,
           sourceCode: code,
           language: language,
