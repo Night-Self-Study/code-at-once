@@ -21,7 +21,7 @@ def error_to_solve(error_log):
         solve = "잘못된 input 처리. input 으로 어떤 값을 넣었는 지 검토"
     elif error_checker("type|mismatch|value|(no attribute)|format|dereferenced"
                        "|defined|(not in)|keyerror|find|(not a statement)|valueerror", error_log) is not None:
-        solve = "변수 error. 해당 변수가 정상적으로 존재하는 지, 혹은 알맞게 사용되고 있는 지 확인"
+        solve = "해당 변수 혹은 객체가 정상적으로 정의되었거나 타입에 맞게 쓰이는지 확인"
         #check the type, member var, or format of value (or return value)
     elif error_checker("memory|overflow|truncated|recursion", error_log) is not None:
         solve = "너무 많은 메모리 사용 (혹은 너무 많은 재귀)"

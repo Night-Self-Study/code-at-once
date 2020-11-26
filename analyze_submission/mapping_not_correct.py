@@ -103,6 +103,11 @@ elif error_type == 'correct' :
     print("correct!")
     #subprocess.call(["python3", "correct_data_to_json.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
+elif error_type == 'no-output' :
+    print("output이 없습니다")
+
+elif error_type == 'timelimit' :
+    print("시간이 초과되었습니다")
 
 db.close()
 
