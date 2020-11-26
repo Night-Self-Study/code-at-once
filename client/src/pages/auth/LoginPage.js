@@ -42,25 +42,14 @@ const LoginPage = () => {
   return (
     <Container className={classes.root} maxWidth='sm'>
       <Typography variant='h3'>로그인</Typography>
-      <CustomForm data={['ID', 'Password']} />
-      <Box py={2}>
-        <Button
-          fullWidth
-          variant='contained'
-          color='primary'
-          onClick={onClickLogin}
-        >
-          로그인
-        </Button>
-        <Button
-          fullWidth
-          variant='contained'
-          color='secondary'
-          onClick={onClickRegister}
-        >
-          회원가입
-        </Button>
-      </Box>
+      <CustomForm
+        data={[
+          { label: 'ID', variableName: 'id' },
+          { label: 'Password', variableName: 'password' },
+        ]}
+        type='login'
+        handleClick={[onClickLogin, onClickRegister]}
+      />
     </Container>
   );
 };
