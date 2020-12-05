@@ -51,6 +51,7 @@ def get_data_in_java(cursor, problem_num, static_path):
 
     for submit in submission_data:
         submit_id = submit[0]
+        print(submit_id)
 
         code_sql = '''
                 select sourcecode from submission_file where submitid=%s;
