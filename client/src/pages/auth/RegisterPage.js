@@ -29,10 +29,14 @@ export default function RegisterPage() {
   const handleSubmitOverlap = async (e) => {
     if (isDuplicated) {
       alert('ID 중복 검사를 해주세요.');
+      return;
     }
+
     const success = await handleSubmit(e);
     if (success) {
       history.push('/auth');
+    } else {
+      alert('회원가입에 실패했습니다. 다시 시도해주세요.');
     }
   };
 

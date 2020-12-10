@@ -95,6 +95,7 @@ export default function RegisterContextProvider({ children }) {
         },
       },
     });
+
     const newErrors = validate(values);
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
@@ -109,7 +110,7 @@ export default function RegisterContextProvider({ children }) {
     setValues({});
     setErrors({});
     setDuplicated(true);
-    canSubmit(false);
+    setCanSubmit(false);
   };
 
   return (
