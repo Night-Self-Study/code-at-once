@@ -32,6 +32,20 @@ export default {
         return e;
       }
     },
+    idDuplicationCheck: async (parent, { input }, { client }) => {
+      try {
+        const key = "User:" + input;
+        const checkID = await client.hgetallAsync(key);
+        if (checkID == null) {
+          return true;
+        }
+        console.log(await client.hgetallAsync(key));
+        return false;
+      } catch (e) {
+        console.log(e);
+        return false;
+      }
+    },
   },
 
   Mutation: {
@@ -44,6 +58,7 @@ export default {
         return false;
       }
     },
+
     createProblem: async (parent, { id, input }, { client }) => {
       try {
         const problemDetail = JSON.stringify(input);
@@ -87,7 +102,7 @@ export default {
           language: input.language,
           submitAt: new Date().toISOString(),
           resultType: result[0],
-          message: result[1],
+          message: result.slice(1).join("\n"),
         };
       } catch (e) {
         console.log(e);
