@@ -1,13 +1,9 @@
 import React from 'react';
-import {
-  Button,
-  Container,
-  Box,
-  Typography,
-  makeStyles,
-} from '@material-ui/core';
+import { Container, Typography, makeStyles } from '@material-ui/core';
 
 import CustomForm from '#/components/auth/CustomForm';
+import { useRegisterContext } from '#/contexts/RegisterContext';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -19,7 +15,26 @@ const useStyles = makeStyles({
 });
 
 export default function RegisterPage() {
+  const history = useHistory();
   const classes = useStyles();
+  const {
+    handleChange,
+    handleSubmit,
+    errors,
+    handleCheckDuplicatedId,
+    isDuplicated,
+    canSubmit,
+  } = useRegisterContext();
+
+  const handleSubmitOverlap = async (e) => {
+    if (isDuplicated) {
+      alert('ID 중복 검사를 해주세요.');
+    }
+    const success = await handleSubmit(e);
+    if (success) {
+      history.push('/auth');
+    }
+  };
 
   return (
     <Container className={classes.root} maxWidth='sm'>
@@ -33,6 +48,12 @@ export default function RegisterPage() {
           { label: '이메일', variableName: 'email' },
         ]}
         type='register'
+        handleChange={handleChange}
+        handleSubmit={handleSubmitOverlap}
+        errors={errors}
+        isDuplicated={isDuplicated}
+        handleCheckDuplicatedId={handleCheckDuplicatedId}
+        canSubmit={canSubmit}
       />
     </Container>
   );

@@ -50,7 +50,7 @@ export default function PaperHead({ title }) {
     setIsLoading(true);
     submitCode({
       variables: {
-        userInput: {
+        userCodeInput: {
           userId: 'solidw',
           problemId: 7,
           sourceCode: code,

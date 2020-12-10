@@ -18,15 +18,35 @@ export const QUERIES = {
       }
     }
   `,
+  ID_DUPLICATION_CHECK: gql`
+    query IdDuplicationCheck($input: String!) {
+      idDuplicationCheck(input: $input)
+    }
+  `,
+  GET_USER: gql`
+    query GetUser($loginInput: LoginInput!) {
+      getUser(input: $loginInput)
+    }
+  `,
   SUBMIT_PROBLEM: gql`
-    mutation SubmitProblem($userInput: UserCodeInput!) {
-      markUserCode(input: $userInput) {
+    mutation SubmitProblem($userCodeInput: UserCodeInput!) {
+      markUserCode(input: $userCodeInput) {
         problemId
         userId
         language
         submitAt
         resultType
         message
+      }
+    }
+  `,
+  CREATE_USER: gql`
+    mutation CreateUser($userInput: UserInput!) {
+      createUser(input: $userInput) {
+        id
+        password
+        name
+        email
       }
     }
   `,
