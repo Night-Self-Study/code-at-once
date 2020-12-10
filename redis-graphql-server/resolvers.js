@@ -37,10 +37,9 @@ export default {
         const key = "User:" + input;
         const checkID = await client.hgetallAsync(key);
         if (checkID == null) {
-          return true;
+          return false;
         }
-        console.log(await client.hgetallAsync(key));
-        return false;
+        return true;
       } catch (e) {
         console.log(e);
         return false;
