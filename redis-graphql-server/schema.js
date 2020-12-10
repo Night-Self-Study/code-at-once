@@ -64,6 +64,7 @@ export default gql`
   type Query {
     getUser(input: LoginInput!): Boolean
     getProblem(id: Int!): Problem
+    idDuplicationCheck(input: String!): Boolean
   }
 
   type Mutation {

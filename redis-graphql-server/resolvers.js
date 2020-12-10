@@ -32,6 +32,19 @@ export default {
         return e;
       }
     },
+    idDuplicationCheck: async (parent, { input }, { client }) => {
+      try {
+        const key = "User:" + input;
+        const checkID = await client.hgetallAsync(key);
+        if (checkID == null) {
+          return false;
+        }
+        return true;
+      } catch (e) {
+        console.log(e);
+        return false;
+      }
+    },
   },
 
   Mutation: {
@@ -44,6 +57,7 @@ export default {
         return false;
       }
     },
+
     createProblem: async (parent, { id, input }, { client }) => {
       try {
         const problemDetail = JSON.stringify(input);
