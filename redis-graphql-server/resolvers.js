@@ -87,7 +87,7 @@ export default {
           language: input.language,
           submitAt: new Date().toISOString(),
           resultType: result[0],
-          message: result.slice(1).join("\n"),
+          message: result[1],
         };
       } catch (e) {
         console.log(e);
